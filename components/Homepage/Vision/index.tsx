@@ -6,7 +6,7 @@ const VisionSection = () => {
     >
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
         <div>
-          <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary-foreground uppercase">
+          <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
             Our vision
           </p>
 

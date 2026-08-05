@@ -11,7 +11,9 @@ const HomeLayout = ({ children }: Props) => {
   return (
     <main className="relative">
       <Navbar />
-      {children}
+      <main className="min-h-screen bg-background text-foreground">
+        {children}
+      </main>
       <Footer />
     </main>
   )

@@ -19,7 +19,7 @@ const JoinCta = () => {
         </div>
 
         <Link
-          href="#contact"
+          href="/contact"
           className="font-sans mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground lg:mt-0"
         >
           Become a member

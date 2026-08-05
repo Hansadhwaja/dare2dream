@@ -5,7 +5,7 @@ import BrandLogo from "../common/BrandLogo"
 
 const AuthHeader = () => {
   return (
-    <header className="flex items-center justify-between px-5 py-6 sm:px-8 lg:px-10">
+    <header className="mx-auto flex h-20 max-w-350 items-center justify-between px-5 lg:px-8">
       <BrandLogo />
 
       <Link

@@ -6,22 +6,22 @@ const WelcomeVideoSection = () => {
     <section id="welcome" className="bg-card py-16 lg:py-24">
       <div className="mx-auto grid max-w-[1400px] gap-10 px-5 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:px-8">
         <div>
-          <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary-foreground uppercase">
+          <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
             Welcome
           </p>
 
-          <h2 className="font-heading mt-4 text-5xl leading-[0.95] font-semibold tracking-[-0.015em] sm:text-6xl">
+          <h2 className="mt-4 font-heading text-5xl leading-[0.95] font-semibold tracking-[-0.015em] sm:text-6xl">
             Start with the story.
           </h2>
 
-          <p className="font-sans mt-5 max-w-md text-[15px] leading-7 font-light text-muted-foreground sm:text-base">
+          <p className="mt-5 max-w-md font-sans text-[15px] leading-7 font-light text-muted-foreground sm:text-base">
             See what Dare to Dream stands for and why community is at the heart
             of everything we do.
           </p>
 
           <Link
-            href="#webinars"
-            className="font-sans mt-7 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-opacity hover:opacity-60"
+            href="/webinar"
+            className="mt-7 inline-flex items-center gap-2 font-sans text-sm font-semibold text-foreground transition-opacity hover:opacity-60"
           >
             Explore webinars
             <ArrowRight className="size-4" />

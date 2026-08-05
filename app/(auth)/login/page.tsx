@@ -14,7 +14,7 @@ const LoginPage = () => {
         title={
           <>
             Keep moving toward{" "}
-            <span className="font-heading italic text-secondary">
+            <span className="font-heading text-secondary italic">
               extraordinary.
             </span>
           </>
@@ -28,18 +28,18 @@ const LoginPage = () => {
             Member login
           </p>
 
-          <h2 className="font-heading mt-3 text-5xl leading-[0.95] font-semibold tracking-[-0.015em] text-foreground sm:text-6xl">
+          <h2 className="mt-3 font-heading text-5xl leading-[0.95] font-semibold tracking-[-0.015em] text-foreground sm:text-6xl">
             Welcome back.
           </h2>
 
-          <p className="font-sans mt-4 text-sm leading-6 font-light text-muted-foreground">
+          <p className="mt-4 font-sans text-sm leading-6 font-light text-muted-foreground">
             Enter your details below to access your account.
           </p>
         </div>
 
         <LoginForm />
 
-        <p className="font-sans mt-8 text-center text-xs text-muted-foreground">
+        <p className="mt-8 text-center font-sans text-xs text-muted-foreground">
           New to Dare to Dream?{" "}
           <Link
             href="/register"
