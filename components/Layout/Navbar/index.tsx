@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 
 const Navbar = () => {
   // Replace this with your auth state
-  const isAuthenticated = true
+  const isAuthenticated = false
 
   const items = isAuthenticated ? navItems : authItems
 
@@ -34,13 +34,19 @@ const Navbar = () => {
             <ProfileMenu />
           ) : (
             <div className="ml-3 flex items-center gap-3">
-              <Button asChild variant="outline">
-                <Link href="/login">Login</Link>
-              </Button>
+              <Link
+                href="/login"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-primary/20 bg-background px-6 text-sm font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/5 hover:shadow-sm"
+              >
+                Login
+              </Link>
 
-              <Button asChild>
-                <Link href="/register">Join Dare to Dream</Link>
-              </Button>
+              <Link
+                href="/register"
+                className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:brightness-105 active:translate-y-0"
+              >
+                Register
+              </Link>
             </div>
           )}
         </nav>
