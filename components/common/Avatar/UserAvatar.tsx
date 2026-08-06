@@ -1,18 +1,32 @@
 import { User } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { cn } from "@/lib/utils"
 
-interface UserAvatarProps {
+interface UserAvatarProps extends React.ComponentPropsWithoutRef<
+  typeof Avatar
+> {
   src?: string | null
   alt?: string
+  fallback?: React.ReactNode
+  iconClassName?: string
+  size?: "default" | "sm" | "lg"
 }
 
-const UserAvatar = ({ src, alt = "User avatar" }: UserAvatarProps) => {
+const UserAvatar = ({
+  src,
+  alt = "User avatar",
+  fallback,
+  className,
+  size = "default",
+  iconClassName,
+  ...props
+}: UserAvatarProps) => {
   return (
-    <Avatar className="size-10 cursor-pointer border">
+    <Avatar size={size} className={cn("border", className)} {...props}>
       <AvatarImage src={src || undefined} alt={alt} />
 
       <AvatarFallback>
-        <User className="size-5" />
+        {fallback ?? <User className={cn("", iconClassName)} />}
       </AvatarFallback>
     </Avatar>
   )

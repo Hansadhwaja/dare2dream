@@ -39,16 +39,6 @@ const ProfileMenu = () => {
           </Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem asChild>
-          <Link
-            href="/settings"
-            className="flex cursor-pointer items-center gap-2"
-          >
-            <Settings className="size-4" />
-            Settings
-          </Link>
-        </DropdownMenuItem>
-
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
