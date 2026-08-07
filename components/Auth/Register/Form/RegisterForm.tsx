@@ -1,8 +1,16 @@
 "use client"
 
-import { ArrowRight, LockKeyhole, Mail, User } from "lucide-react"
+import {
+  ArrowRight,
+  Globe,
+  LockKeyhole,
+  Mail,
+  User,
+  UserPlus,
+} from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Country } from "country-state-city"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -13,42 +21,75 @@ import {
   registerSchema,
   type RegisterFormValues,
 } from "@/schemas/Auth/register.schemas"
+import IconSelect from "@/components/common/Input/IconSelect"
+import Loader from "@/components/common/Loader/Loader"
 
-const RegisterForm = () => {
+const countries = Country.getAllCountries()
+
+interface Props {
+  onSubmit: (data: RegisterFormValues) => void
+  isLoading: boolean
+}
+
+const RegisterForm = ({ onSubmit, isLoading }: Props) => {
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
+    mode: "onChange",
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
-      terms: false,
+      country: "",
+      whoInvited: "",
+      agreedPrivacyPolicy: true,
     },
   })
 
-  const onSubmit = (values: RegisterFormValues) => {
-    console.log(values)
+  const {
+    formState: { isValid },
+    reset,
+  } = form
+
+  const onFormSubmit = (values: RegisterFormValues) => {
+    onSubmit(values)
+    reset()
   }
 
   return (
-    <form
-      onSubmit={form.handleSubmit(onSubmit)}
-      className="space-y-5"
-      noValidate
-    >
-      <FormField
-        control={form.control}
-        name="name"
-        render={(field) => (
-          <AuthField
-            {...field}
-            label="Full name"
-            placeholder="Your full name"
-            autoComplete="name"
-            icon={User}
-          />
-        )}
-      />
+    <form onSubmit={form.handleSubmit(onFormSubmit)} className="space-y-4">
+      {/* First Name / Last Name */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <FormField
+          control={form.control}
+          name="firstName"
+          render={(field) => (
+            <AuthField
+              {...field}
+              label="First name"
+              placeholder="First name"
+              autoComplete="given-name"
+              icon={User}
+            />
+          )}
+        />
 
+        <FormField
+          control={form.control}
+          name="lastName"
+          render={(field) => (
+            <AuthField
+              {...field}
+              label="Last name"
+              placeholder="Last name"
+              autoComplete="family-name"
+              icon={User}
+            />
+          )}
+        />
+      </div>
+
+      {/* Email */}
       <FormField
         control={form.control}
         name="email"
@@ -64,6 +105,7 @@ const RegisterForm = () => {
         )}
       />
 
+      {/* Password */}
       <FormField
         control={form.control}
         name="password"
@@ -81,9 +123,43 @@ const RegisterForm = () => {
 
       <FormField
         control={form.control}
-        name="terms"
+        name="country"
         render={(field) => (
-          <label className="font-sans flex cursor-pointer items-start gap-2 pt-1 text-[11px] leading-5 text-muted-foreground">
+          <IconSelect
+            label="Country"
+            icon={Globe}
+            placeholder="Select your country"
+            value={field.value}
+            onValueChange={field.onChange}
+            options={countries.map((country) => ({
+              label: country.name,
+              value: country.isoCode,
+            }))}
+          />
+        )}
+      />
+
+      {/* Who Invited */}
+      <FormField
+        control={form.control}
+        name="whoInvited"
+        render={(field) => (
+          <AuthField
+            {...field}
+            label="Who invited you?"
+            placeholder="Enter the name of the person who invited you"
+            autoComplete="off"
+            icon={UserPlus}
+          />
+        )}
+      />
+
+      {/* Privacy Policy */}
+      <FormField
+        control={form.control}
+        name="agreedPrivacyPolicy"
+        render={(field) => (
+          <label className="flex cursor-pointer items-start gap-2 pt-1 font-sans text-[11px] leading-5 text-muted-foreground">
             <Checkbox
               checked={Boolean(field.value)}
               onCheckedChange={field.onChange}
@@ -99,12 +175,20 @@ const RegisterForm = () => {
         )}
       />
 
+      {/* Submit */}
       <Button
         type="submit"
-        className="font-sans inline-flex h-13 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
+        className="inline-flex h-13 w-full items-center justify-center gap-2 rounded-full bg-primary font-sans text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
+        disabled={!isValid || isLoading}
       >
-        Create account
-        <ArrowRight className="size-4" />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            Create account
+            <ArrowRight className="size-4" />
+          </>
+        )}
       </Button>
     </form>
   )

@@ -1,11 +1,20 @@
 import { z } from "zod"
 
 export const registerSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
+  firstName: z.string().min(2, "First name must be at least 2 characters."),
+
+  lastName: z.string().min(2, "Last name must be at least 2 characters."),
+
+  email: z.email("Please enter a valid email address."),
+
   password: z.string().min(8, "Password must be at least 8 characters."),
-  terms: z.boolean().refine((value) => value, {
-    message: "You must accept the terms and conditions.",
+
+  country: z.string().min(2, "Country is required."),
+
+  whoInvited: z.string().min(2, "Who invited you is required."),
+
+  agreedPrivacyPolicy: z.boolean().refine((value) => value, {
+    message: "You must accept the terms and privacy policy.",
   }),
 })
 
