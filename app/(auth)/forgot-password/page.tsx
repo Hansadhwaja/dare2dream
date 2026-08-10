@@ -52,8 +52,7 @@ const ForgotPasswordPage = () => {
           </h2>
 
           <p className="mx-auto mt-4 max-w-sm font-sans text-sm leading-6 font-light text-muted-foreground">
-            Enter your email and we will send you a secure link to reset your
-            password.
+            Enter your email and we will send you an OTP to reset your password.
           </p>
         </div>
 

@@ -40,5 +40,7 @@ export const config = {
     "/updates/:path*",
     "/login",
     "/register",
+    "/forgot-password",
+    "/reset-password",
   ],
 }
