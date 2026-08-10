@@ -12,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea"
 import {
   ContactFormValues,
   contactSchema,
-} from "@/schemas/Contact/contact.schema"
+} from "@/schemas/Contact/contact.schemas"
 import FormField from "@/components/common/Form/FormField"
 
 const ContactForm = () => {

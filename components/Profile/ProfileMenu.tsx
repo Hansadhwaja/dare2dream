@@ -8,14 +8,10 @@ import {
 import UserAvatar from "@/components/common/Avatar/UserAvatar"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { LogOut, Settings, User } from "lucide-react"
+import { LogOut, User } from "lucide-react"
+import LogoutAlert from "../common/Alert/LogoutAlert"
 
 const ProfileMenu = () => {
-  const handleLogout = () => {
-    console.log("logout")
-    // clear token/session here
-  }
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -42,11 +38,17 @@ const ProfileMenu = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
-          onClick={handleLogout}
           className="cursor-pointer text-destructive focus:text-destructive"
+          asChild
         >
-          <LogOut className="size-4" />
-          Logout
+          <LogoutAlert
+            trigger={
+              <Button variant='destructive' className="flex items-center gap-2 w-full justify-start">
+                <LogOut className="size-4" />
+                Logout
+              </Button>
+            }
+          />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,7 +1,7 @@
-import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import { LogOut } from "lucide-react"
 import { Button } from "../ui/button"
+import LogoutAlert from "../common/Alert/LogoutAlert"
 
 const LogoutCard = () => {
   return (
@@ -21,7 +21,7 @@ const LogoutCard = () => {
           </p>
         </div>
 
-        <Button variant="outline">Logout</Button>
+        <LogoutAlert trigger={<Button variant="outline">Logout</Button>} />
       </CardContent>
     </Card>
   )

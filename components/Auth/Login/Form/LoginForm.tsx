@@ -11,28 +11,38 @@ import { Label } from "@/components/ui/label"
 
 import AuthField from "../../AuthField"
 import FormField from "@/components/common/Form/FormField"
-import {
-  LoginFormValues,
-  loginSchema,
-} from "@/schemas/Auth/login.schemas"
+import { LoginFormValues, loginSchema } from "@/schemas/Auth/login.schemas"
+import Loader from "@/components/common/Loader/Loader"
 
-const LoginForm = () => {
+interface Props {
+  onSubmit: (data: LoginFormValues) => void
+  isLoading: boolean
+}
+
+const LoginForm = ({ onSubmit, isLoading }: Props) => {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
+    mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
-      rememberMe: false,
+      rememberMe: true,
     },
   })
 
-  const onSubmit = (values: LoginFormValues) => {
-    console.log(values)
+  const {
+    formState: { isValid },
+    reset,
+  } = form
+
+  const onFormSubmit = (values: LoginFormValues) => {
+    onSubmit(values)
+    reset()
   }
 
   return (
     <form
-      onSubmit={form.handleSubmit(onSubmit)}
+      onSubmit={form.handleSubmit(onFormSubmit)}
       className="space-y-5"
       noValidate
     >
@@ -87,7 +97,7 @@ const LoginForm = () => {
 
         <Link
           href="/forgot-password"
-          className="font-sans flex justify-end text-xs font-semibold text-foreground transition-opacity hover:opacity-60"
+          className="flex justify-end font-sans text-xs font-semibold text-foreground transition-opacity hover:opacity-60"
         >
           Forgot password?
         </Link>
@@ -95,10 +105,17 @@ const LoginForm = () => {
 
       <Button
         type="submit"
-        className="font-sans mt-2 h-13 w-full rounded-full bg-primary text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
+        className="mt-2 h-13 w-full rounded-full bg-primary font-sans text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
+        disabled={!isValid || isLoading}
       >
-        Sign in
-        <ArrowRight className="size-4" />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            Sign in
+            <ArrowRight />
+          </>
+        )}
       </Button>
     </form>
   )

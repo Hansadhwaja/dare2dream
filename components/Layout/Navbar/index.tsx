@@ -8,11 +8,11 @@ import BrandLogo from "@/components/common/BrandLogo"
 import MobileNav from "./MobileNav"
 
 import ProfileMenu from "@/components/Profile/ProfileMenu"
-import { Button } from "@/components/ui/button"
+import { useAuthStore } from "@/store/auth/authStore"
 
 const Navbar = () => {
-  // Replace this with your auth state
-  const isAuthenticated = false
+  const token = useAuthStore((state) => state.token)
+  const isAuthenticated = !!token
 
   const items = isAuthenticated ? navItems : authItems
 

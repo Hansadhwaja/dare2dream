@@ -9,20 +9,18 @@ interface UserAvatarProps extends React.ComponentPropsWithoutRef<
   alt?: string
   fallback?: React.ReactNode
   iconClassName?: string
-  size?: "default" | "sm" | "lg"
 }
 
 const UserAvatar = ({
   src,
   alt = "User avatar",
   fallback,
-  className,
-  size = "default",
+  className = "w-10 h-10",
   iconClassName,
   ...props
 }: UserAvatarProps) => {
   return (
-    <Avatar size={size} className={cn("border", className)} {...props}>
+    <Avatar className={cn("border", className)} {...props}>
       <AvatarImage src={src || undefined} alt={alt} />
 
       <AvatarFallback>

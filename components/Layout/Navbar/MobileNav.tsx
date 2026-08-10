@@ -101,29 +101,6 @@ const MobileNav = ({
               </div>
             )}
           </div>
-
-          {/* CTA */}
-          <div className="mt-auto pt-10 pb-6">
-            <div className="rounded-2xl border border-border bg-muted p-5">
-              <p className="font-sans text-sm font-semibold text-foreground">
-                Ready to take the next step?
-              </p>
-
-              <p className="mt-1.5 font-sans text-xs leading-5 text-muted-foreground">
-                Let&apos;s turn your vision into something meaningful.
-              </p>
-
-              <Button
-                asChild
-                className="group mt-5 w-full rounded-xl py-6 font-sans text-sm font-semibold"
-              >
-                <Link href="/contact">
-                  Get Started
-                  <ArrowRight className="ml-2 size-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </div>
-          </div>
         </div>
       </SheetContent>
     </Sheet>

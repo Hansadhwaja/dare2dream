@@ -34,11 +34,7 @@ const ProfilePage = () => {
               </p>
             </div>
 
-            <ProfileCard
-              name="John Doe"
-              email="john@example.com"
-              avatar={null}
-            />
+            <ProfileCard />
           </section>
 
           {/* Account */}
