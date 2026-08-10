@@ -4,7 +4,7 @@ import JourneySection from "@/components/Homepage/Journey"
 import VisionSection from "@/components/Homepage/Vision"
 import WelcomeVideoSection from "@/components/Homepage/Welcome"
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <HeroSection />

@@ -51,7 +51,7 @@ const LoginPage = () => {
 
       <AuthCard>
         <div className="mb-8">
-          <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary-foreground uppercase">
+          <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
             Member login
           </p>
 

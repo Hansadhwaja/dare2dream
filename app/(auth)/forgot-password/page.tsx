@@ -1,9 +1,40 @@
+"use client"
+
 import AuthCard from "@/components/Auth/AuthCard"
 import ForgotPasswordForm from "@/components/Auth/ForgotPassword/Form/ForgotPasswordForm"
+import { forgotPasswordUser } from "@/lib/api/auth"
+import { ForgotPasswordFormValues } from "@/schemas/Auth/forgot_password.schemas"
+import { useAuthStore } from "@/store/auth/authStore"
 import { ArrowLeft, LockKeyhole } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { toast } from "sonner"
 
 const ForgotPasswordPage = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const setForgotPasswordEmail = useAuthStore(
+    (state) => state.setForgotPasswordEmail
+  )
+  const router = useRouter()
+
+  const handleSubmit = async (values: ForgotPasswordFormValues) => {
+    try {
+      setIsLoading(true)
+      await forgotPasswordUser(values)
+      setForgotPasswordEmail(values.email)
+      toast.success("OTP sent successfully")
+      router.replace("/reset-password")
+    } catch (error) {
+      console.error("OTP sent failed:", error)
+      toast.error(
+        error instanceof Error ? error.message : "Error while sending otp"
+      )
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <div className="mx-auto flex flex-1 items-center justify-center px-5 pb-12 sm:px-8">
       <AuthCard>
@@ -12,7 +43,7 @@ const ForgotPasswordPage = () => {
             <LockKeyhole className="size-5" />
           </div>
 
-          <p className="mt-7 font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary-foreground uppercase">
+          <p className="mt-7 font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
             Account recovery
           </p>
 
@@ -26,7 +57,7 @@ const ForgotPasswordPage = () => {
           </p>
         </div>
 
-        <ForgotPasswordForm />
+        <ForgotPasswordForm onSubmit={handleSubmit} isLoading={isLoading} />
 
         <Link
           href="/login"

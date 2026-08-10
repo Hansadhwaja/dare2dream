@@ -1,7 +1,7 @@
-import React from "react"
+
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import { Shield } from "lucide-react"
-import { Button } from "../ui/button"
+import ChangePasswordModal from "./Modal/ChangePasswordModal"
 
 const SecurityCard = () => {
   return (
@@ -21,7 +21,7 @@ const SecurityCard = () => {
           </p>
         </div>
 
-        <Button variant="outline">Change Password</Button>
+        <ChangePasswordModal />
       </CardContent>
     </Card>
   )

@@ -5,11 +5,14 @@ import { persist } from "zustand/middleware"
 interface AuthState {
   token: string | null
   user: User | null
+  forgotPasswordEmail: string | null
 
   setAuth: (token: string, user: User) => void
   setToken: (token: string) => void
   setUser: (user: User) => void
   updateUser: (user: Partial<User>) => void
+  setForgotPasswordEmail: (email: string) => void
+  clearForgotPasswordEmail: () => void
   logout: () => void
 }
 
@@ -18,6 +21,7 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       token: null,
       user: null,
+      forgotPasswordEmail: null,
 
       setAuth: (token, user) =>
         set({
@@ -43,7 +47,14 @@ export const useAuthStore = create<AuthState>()(
               }
             : null,
         })),
-
+      setForgotPasswordEmail: (email) =>
+        set({
+          forgotPasswordEmail: email,
+        }),
+      clearForgotPasswordEmail: () =>
+        set({
+          forgotPasswordEmail: null,
+        }),
       logout: () =>
         set({
           token: null,

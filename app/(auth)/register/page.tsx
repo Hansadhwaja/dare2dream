@@ -9,9 +9,11 @@ import { useState } from "react"
 import { RegisterFormValues } from "@/schemas/Auth/register.schemas"
 import { registerUser } from "@/lib/api/auth"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
 
   const handleSubmit = async (values: RegisterFormValues) => {
     try {
@@ -20,6 +22,7 @@ const RegisterPage = () => {
 
       console.log("Registration successful:", response)
       toast.success(response?.message ?? "User registered successfully")
+      router.replace("/login")
     } catch (error) {
       console.error("Registration failed:", error)
       toast.error(

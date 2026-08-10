@@ -1,7 +1,14 @@
+import { getVideos } from "@/lib/api/home"
 import { ArrowRight, Play } from "lucide-react"
 import Link from "next/link"
 
-const WelcomeVideoSection = () => {
+const WelcomeVideoSection = async () => {
+  const videos = await getVideos({
+    page: "1",
+    limit: "10",
+    pageFilter: "home",
+  })
+  console.log(videos)
   return (
     <section id="welcome" className="bg-card py-16 lg:py-24">
       <div className="mx-auto grid max-w-[1400px] gap-10 px-5 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:px-8">
