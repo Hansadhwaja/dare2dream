@@ -3,6 +3,13 @@ import LogoutCard from "@/components/Profile/LogoutCard"
 import ProfileCard from "@/components/Profile/ProfileCard"
 import SecurityCard from "@/components/Profile/SecurityCard"
 import { Separator } from "@/components/ui/separator"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "My Profile",
+  description:
+    "Manage your Dare to Dream profile, account details, and membership information.",
+}
 
 const ProfilePage = () => {
   return (

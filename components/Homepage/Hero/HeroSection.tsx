@@ -1,11 +1,16 @@
+"use client"
+
 import { ArrowRight, Play } from "lucide-react"
 import Link from "next/link"
 
 import HeroStoryCard from "./HeroStoryCard"
+import { useAuthStore } from "@/store/auth/authStore"
 
 const HeroSection = () => {
+  const token = useAuthStore((state) => state.token)
+
   return (
-    <section className="mx-auto max-w-350 px-5 pt-5 lg:px-8">
+    <section className="max-container pt-5">
       <div className="relative overflow-hidden rounded-[2rem] bg-primary">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,color-mix(in_oklab,var(--secondary)_70%,transparent),transparent_27%),linear-gradient(125deg,color-mix(in_oklab,var(--primary)_92%,white),var(--primary)_60%,color-mix(in_oklab,var(--primary)_80%,black))]" />
 
@@ -29,17 +34,17 @@ const HeroSection = () => {
             </h1>
 
             <p className="mt-7 max-w-xl font-sans text-lg leading-8 text-white/68 sm:text-xl">
-              A community for people with ideas, ambition and a vision for
-              something bigger — built around connection, learning and
-              meaningful opportunities.
+              Empowering people in under-resourced communities to create
+              fulfilling work, take ownership, and build a better future
+              together.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="#join"
+                href={token ? "/webinar" : "/register"}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 font-sans text-sm font-semibold text-secondary-foreground hover:brightness-95"
               >
-                Start your journey
+                {token ? "Explore webinars" : "Start your journey"}
                 <ArrowRight className="size-4" />
               </Link>
 
@@ -48,7 +53,7 @@ const HeroSection = () => {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-4 font-sans text-sm font-semibold text-white backdrop-blur hover:bg-white/15"
               >
                 <Play className="size-4 fill-current" />
-                Watch our story
+                Discover our story
               </Link>
             </div>
           </div>

@@ -1,16 +1,16 @@
 const HeroStoryCard = () => {
   const items = [
-    ["Connect", "Meet people who think bigger."],
-    ["Learn", "Discover practical ideas."],
-    ["Grow", "Turn momentum into progress."],
-    ["Lead", "Create impact together."],
+    ["Lead", "Develop the confidence to lead."],
+    ["Connect", "Build meaningful community connections."],
+    ["Mentor", "Learn through real-world experience."],
+    ["Grow", "Create opportunity and advance together."],
   ]
 
   return (
     <div className="flex items-end justify-end lg:pb-4">
       <div className="w-full max-w-sm rounded-[1.75rem] border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
         <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
-          A community built around you
+          An ecosystem built for growth
         </p>
 
         <div className="mt-5 grid grid-cols-2 gap-3">

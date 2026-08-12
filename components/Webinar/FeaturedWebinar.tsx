@@ -10,7 +10,7 @@ interface Props {
 
 const FeaturedWebinar = ({ webinar }: Props) => {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 py-16 lg:px-8 lg:py-24">
+    <section className="max-container py-16 lg:py-24">
       {/* Heading */}
       <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div>

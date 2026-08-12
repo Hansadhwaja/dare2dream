@@ -38,7 +38,7 @@ const SectionHero = ({
   children,
 }: SectionHeroProps) => {
   return (
-    <section className="mx-auto max-w-350 px-5 pt-5 lg:px-8">
+    <section className="max-container pt-5">
       <div className="relative overflow-hidden rounded-[2rem] bg-primary">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,color-mix(in_oklab,var(--secondary)_70%,transparent),transparent_27%),linear-gradient(125deg,color-mix(in_oklab,var(--primary)_92%,white),var(--primary)_60%,color-mix(in_oklab,var(--primary)_80%,black))]" />
 

@@ -11,7 +11,7 @@ interface Props {
 const LatestWebinars = ({ webinars }: Props) => {
   return (
     <section className="bg-card py-16 lg:py-24">
-      <div className="mx-auto max-w-350 px-5 py-16 lg:px-8 lg:py-24">
+      <div className="max-container py-16 lg:py-24">
         {/* Heading */}
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>

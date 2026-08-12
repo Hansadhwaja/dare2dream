@@ -6,7 +6,7 @@ const JourneySection = () => {
   return (
     <section
       id="community"
-      className="mx-auto max-w-[1400px] px-5 pb-16 lg:px-8 lg:pb-24"
+      className="max-container pb-16 lg:pb-24"
     >
       <div className="grid gap-4 lg:grid-cols-3">
         {journeyItems.map((item) => (

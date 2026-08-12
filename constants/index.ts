@@ -45,23 +45,23 @@ export const slides = [
 export const journeyItems = [
   {
     number: "01",
-    title: "Find your people.",
+    title: "Build your foundation.",
     description:
-      "Connect with people who share your curiosity, ambition and belief that something better is possible.",
+      "Create fulfilling work, take ownership of your future, and develop the foundation you need to turn your ideas into opportunity.",
     className: "bg-[#e9dcc7] text-primary",
   },
   {
     number: "02",
-    title: "Learn from experience.",
+    title: "Learn through experience.",
     description:
-      "Discover conversations, webinars and resources that make the next step feel clearer and more achievable.",
+      "Entrepreneurship goes beyond textbooks. Learn through authentic experiences, mentorship, tangible spaces, and meaningful community involvement.",
     className: "bg-[#dce6d4] text-primary",
   },
   {
     number: "03",
-    title: "Make the dream move.",
+    title: "Advance together.",
     description:
-      "Turn inspiration into action with a community that encourages progress, accountability and long-term relationships.",
+      "Join a growing ecosystem where people connect, reinvest in one another, and create opportunities that move communities forward.",
     className: "bg-primary text-white",
   },
 ]

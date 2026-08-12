@@ -24,7 +24,7 @@ const UpdatePreview = ({ update }: UpdatePreviewProps) => {
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
 
-          <div className="absolute top-5 left-5">
+          <div className="absolute top-5 right-5">
             <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
               <Pin className="size-3.5" />
               Featured Update
