@@ -5,7 +5,7 @@ const BrandLogo = () => {
   return (
     <Link href="/" className="flex items-center gap-2.5">
       <Image
-        src="/logo.jpeg"
+        src="/logo.png"
         alt="Dare to Dream"
         width={100}
         height={40}
