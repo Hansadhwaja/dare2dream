@@ -23,8 +23,22 @@ import {
 } from "@/schemas/Auth/register.schemas"
 import IconSelect from "@/components/common/Input/IconSelect"
 import Loader from "@/components/common/Loader/Loader"
+import Link from "next/link"
 
 const countries = Country.getAllCountries()
+
+// Countries that should appear at the top
+const priorityCountryCodes = ["US", "GB", "IN", "ZA"]
+
+const priorityCountries = priorityCountryCodes
+  .map((code) => countries.find((country) => country.isoCode === code))
+  .filter(Boolean)
+
+const otherCountries = countries.filter(
+  (country) => !priorityCountryCodes.includes(country.isoCode)
+)
+
+const sortedCountries = [...priorityCountries, ...otherCountries]
 
 interface Props {
   onSubmit: (data: RegisterFormValues) => void
@@ -121,6 +135,7 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
         )}
       />
 
+      {/* Country */}
       <FormField
         control={form.control}
         name="country"
@@ -131,9 +146,11 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
             placeholder="Select your country"
             value={field.value}
             onValueChange={field.onChange}
-            options={countries.map((country) => ({
-              label: country.name,
-              value: country.isoCode,
+            options={sortedCountries.map((country, index) => ({
+              label: priorityCountryCodes.includes(country!.isoCode)
+                ? `${country!.name}`
+                : country!.name,
+              value: country!.isoCode,
             }))}
           />
         )}
@@ -159,7 +176,7 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
         control={form.control}
         name="agreedPrivacyPolicy"
         render={(field) => (
-          <label className="flex cursor-pointer items-start gap-2 pt-1 font-sans text-[11px] leading-5 text-muted-foreground">
+          <label className="flex cursor-pointer items-start gap-2 pt-1 font-sans text-xs leading-5 text-muted-foreground">
             <Checkbox
               checked={Boolean(field.value)}
               onCheckedChange={field.onChange}
@@ -167,9 +184,22 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
               className="mt-0.5"
             />
 
-            <span>
-              I agree to the terms and understand how my information will be
-              used.
+            <span className="text-sm leading-6 text-muted-foreground">
+              I agree to the{" "}
+              <Link
+                href="/terms"
+                className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
+              >
+                Terms of Service
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/privacy"
+                className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
+              >
+                Privacy Policy
+              </Link>{" "}
+              and understand how my information will be used.
             </span>
           </label>
         )}

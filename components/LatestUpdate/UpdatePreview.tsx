@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, CalendarDays, Pin } from "lucide-react"
+
 import { Update } from "@/types/update.types"
 
 interface UpdatePreviewProps {
@@ -24,41 +25,46 @@ const UpdatePreview = ({ update }: UpdatePreviewProps) => {
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
 
-          <div className="absolute top-5 right-5">
-            <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
-              <Pin className="size-3.5" />
+          {/* Featured Badge */}
+          <div className="absolute top-4 right-4 sm:top-5 sm:right-5">
+            <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-sm font-bold text-secondary-foreground sm:text-base">
+              <Pin className="size-4" />
               Featured Update
             </span>
           </div>
 
+          {/* Image Content */}
           <div className="absolute right-5 bottom-5 left-5">
-            <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+            <span className="inline-flex rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-white backdrop-blur sm:text-base">
               {update.category}
             </span>
 
-            <h3 className="mt-3 font-heading text-2xl leading-tight font-semibold text-white">
+            <h3 className="mt-3 font-heading text-2xl leading-tight font-semibold text-white sm:text-3xl">
               {update.title}
             </h3>
           </div>
         </div>
 
         {/* Content */}
-        <div className="space-y-5 p-6">
-          <div className="flex items-center gap-2 text-sm text-white/65">
-            <CalendarDays className="size-4" />
+        <div className="space-y-6 p-6 sm:p-7">
+          {/* Date */}
+          <div className="flex items-center gap-2.5 text-base font-medium text-white/75 sm:text-lg">
+            <CalendarDays className="size-5 shrink-0 text-secondary" />
             <span>{update.publishedAt}</span>
           </div>
 
-          <p className="line-clamp-3 text-sm leading-7 text-white/75">
+          {/* Excerpt */}
+          <p className="line-clamp-3 text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
             {update.excerpt}
           </p>
 
+          {/* CTA */}
           <Link
             href={`/updates/${update.id}`}
-            className="inline-flex items-center gap-2 font-semibold text-secondary transition hover:gap-3"
+            className="inline-flex items-center gap-2 text-base font-bold text-secondary transition hover:gap-3 sm:text-lg"
           >
             Read Update
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-5" />
           </Link>
         </div>
       </div>

@@ -29,14 +29,14 @@ const WebinarPreview = ({ webinar }: Props) => {
 
         {/* Play Button */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex size-16 items-center justify-center rounded-full bg-white/90 text-primary shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-secondary-foreground">
-            <Play className="ml-1 size-7 fill-current transition-transform duration-300 group-hover:scale-110" />
+          <div className="flex size-16 items-center justify-center rounded-full bg-white/90 text-primary shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-secondary-foreground sm:size-20">
+            <Play className="ml-1 size-7 fill-current transition-transform duration-300 group-hover:scale-110 sm:size-8" />
           </div>
         </div>
 
         {/* Featured Badge */}
-        <div className="absolute top-6 left-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/90 px-4 py-2 text-xs font-semibold tracking-widest text-secondary-foreground uppercase backdrop-blur">
+        <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/90 px-4 py-2 text-sm font-bold tracking-wide text-secondary-foreground uppercase backdrop-blur sm:text-base">
             <span className="size-2 rounded-full bg-white" />
             Featured
           </span>
@@ -44,32 +44,32 @@ const WebinarPreview = ({ webinar }: Props) => {
       </div>
 
       {/* Content */}
-      <div className="space-y-5 p-8">
+      <div className="space-y-5 p-6 sm:p-8">
         {/* Metadata */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-secondary/15 px-3 py-1 text-xs font-semibold text-secondary">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <span className="rounded-full bg-secondary/15 px-4 py-1.5 text-sm font-semibold text-secondary sm:text-base">
             {webinar.duration}
           </span>
 
-          <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">
+          <span className="rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white/75 sm:text-base">
             {webinar.speaker}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-heading text-3xl leading-tight font-semibold text-white">
+        <h3 className="font-heading text-3xl leading-tight font-semibold text-white sm:text-4xl">
           {webinar.title}
         </h3>
 
         {/* Description */}
-        <p className="line-clamp-3 text-base leading-7 text-white/70">
+        <p className="line-clamp-3 text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
           {webinar.description}
         </p>
 
         {/* CTA */}
-        <div className="inline-flex items-center gap-2 font-semibold text-secondary">
+        <div className="inline-flex items-center gap-2 text-base font-bold text-secondary sm:text-lg">
           Watch Now
-          <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
       </div>
     </Link>

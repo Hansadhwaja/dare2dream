@@ -19,13 +19,17 @@ const LoginPage = () => {
   const handleSubmit = async (values: LoginFormValues) => {
     try {
       setIsLoading(true)
+
       const response = await loginUser(values)
+
       await setServerToken(response.token)
       setAuth(response.token, response.user)
+
       toast.success("User Logged In successfully")
       router.replace("/")
     } catch (error) {
       console.error("Login failed:", error)
+
       toast.error(
         error instanceof Error ? error.message : "Error while logging in"
       )
@@ -51,26 +55,26 @@ const LoginPage = () => {
 
       <AuthCard>
         <div className="mb-8">
-          <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
+          <p className="font-sans text-xs font-semibold tracking-[0.12em] text-secondary uppercase">
             Member login
           </p>
 
-          <h2 className="mt-3 font-heading text-5xl leading-[0.95] font-semibold tracking-[-0.015em] text-foreground sm:text-6xl">
+          <h2 className="mt-4 font-heading text-5xl leading-[0.95] font-semibold tracking-[-0.015em] text-foreground sm:text-6xl lg:text-7xl">
             Welcome back.
           </h2>
 
-          <p className="mt-4 font-sans text-sm leading-6 font-light text-muted-foreground">
+          <p className="mt-5 font-sans text-base leading-7 font-light text-muted-foreground sm:text-lg">
             Enter your details below to access your account.
           </p>
         </div>
 
         <LoginForm onSubmit={handleSubmit} isLoading={isLoading} />
 
-        <p className="mt-8 text-center font-sans text-xs text-muted-foreground">
+        <p className="mt-9 text-center font-sans text-sm text-muted-foreground sm:text-base">
           New to Dare to Dream?{" "}
           <Link
             href="/register"
-            className="font-semibold text-foreground transition-opacity hover:opacity-60"
+            className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
           >
             Create an account
           </Link>

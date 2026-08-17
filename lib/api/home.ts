@@ -1,4 +1,4 @@
-import { serverApiFetch } from "./server"
+import { apiFetch } from "./client"
 
 interface GetVideosParams {
   page?: string
@@ -23,5 +23,9 @@ export const getVideos = (params: GetVideosParams = {}) => {
 
   const url = queryString ? `/videos?${queryString}` : "/videos"
 
-  return serverApiFetch(url)
+  return apiFetch(url)
+}
+
+export const getCms = (slug: string) => {
+  return apiFetch(`/cms/${slug}`)
 }

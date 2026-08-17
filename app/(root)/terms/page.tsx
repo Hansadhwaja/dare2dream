@@ -14,7 +14,7 @@ const TermsPage = () => {
       <section className="border-b border-border">
         <div className="max-container py-16 lg:py-24">
           <div className="max-w-4xl">
-            <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
+            <p className="font-sans text-sm font-semibold tracking-[0.12em] text-secondary uppercase">
               Terms
             </p>
 
@@ -24,12 +24,12 @@ const TermsPage = () => {
               <span className="text-secondary">Meaningful experiences.</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 font-light text-muted-foreground sm:text-xl">
+            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 font-normal text-muted-foreground sm:text-xl sm:leading-9">
               These terms outline the rules and responsibilities that apply when
               you access and use Dare to Dream services.
             </p>
 
-            <p className="mt-6 font-sans text-xs text-muted-foreground/70">
+            <p className="mt-6 font-sans text-sm text-muted-foreground/70">
               Last updated: August 2026
             </p>
           </div>
@@ -153,7 +153,7 @@ const TermsPage = () => {
         <div className="max-container py-12 lg:py-16">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary-foreground/60 uppercase">
+              <p className="font-sans text-sm font-semibold tracking-[0.12em] text-secondary-foreground/70 uppercase">
                 Have a question?
               </p>
 
@@ -164,7 +164,7 @@ const TermsPage = () => {
 
             <Link
               href="/contact"
-              className="inline-flex w-fit items-center rounded-full bg-primary px-6 py-3 font-sans text-sm font-semibold text-primary-foreground transition hover:brightness-95"
+              className="inline-flex w-fit items-center rounded-full bg-primary px-7 py-4 font-sans text-base font-semibold text-primary-foreground transition hover:brightness-95"
             >
               Contact us
             </Link>
@@ -186,7 +186,7 @@ const TermsSection = ({
 }) => {
   return (
     <article className="grid gap-5 border-b border-border pb-12 md:grid-cols-[100px_1fr]">
-      <span className="font-sans text-xs font-semibold tracking-[0.12em] text-secondary">
+      <span className="font-sans text-sm font-semibold tracking-[0.12em] text-secondary">
         {number}
       </span>
 
@@ -195,7 +195,7 @@ const TermsSection = ({
           {title}
         </h2>
 
-        <div className="mt-6 space-y-5 font-sans text-[15px] leading-8 font-light text-muted-foreground sm:text-base">
+        <div className="mt-6 space-y-6 font-sans text-base leading-8 font-normal text-muted-foreground sm:text-lg sm:leading-9">
           {children}
         </div>
       </div>

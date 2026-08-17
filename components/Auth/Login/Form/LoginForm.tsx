@@ -43,9 +43,10 @@ const LoginForm = ({ onSubmit, isLoading }: Props) => {
   return (
     <form
       onSubmit={form.handleSubmit(onFormSubmit)}
-      className="space-y-5"
+      className="space-y-6"
       noValidate
     >
+      {/* Email */}
       <FormField
         control={form.control}
         name="email"
@@ -61,6 +62,7 @@ const LoginForm = ({ onSubmit, isLoading }: Props) => {
         )}
       />
 
+      {/* Password */}
       <FormField
         control={form.control}
         name="password"
@@ -76,19 +78,20 @@ const LoginForm = ({ onSubmit, isLoading }: Props) => {
         )}
       />
 
+      {/* Remember / Forgot */}
       <div className="grid grid-cols-2 gap-4 pt-1">
         <FormField
           control={form.control}
           name="rememberMe"
           render={(field) => (
-            <Label className="flex cursor-pointer items-center gap-2">
+            <Label className="flex cursor-pointer items-center gap-3">
               <Checkbox
                 checked={Boolean(field.value)}
                 onCheckedChange={field.onChange}
                 onBlur={field.onBlur}
               />
 
-              <span className="font-sans text-xs text-muted-foreground">
+              <span className="font-sans text-sm text-muted-foreground">
                 Remember me
               </span>
             </Label>
@@ -97,15 +100,16 @@ const LoginForm = ({ onSubmit, isLoading }: Props) => {
 
         <Link
           href="/forgot-password"
-          className="flex justify-end font-sans text-xs font-semibold text-foreground transition-opacity hover:opacity-60"
+          className="flex justify-end font-sans text-sm font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
         >
           Forgot password?
         </Link>
       </div>
 
+      {/* Submit */}
       <Button
         type="submit"
-        className="mt-2 h-13 w-full rounded-full bg-primary font-sans text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
+        className="mt-3 h-13 w-full rounded-full bg-primary font-sans text-base font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
         disabled={!isValid || isLoading}
       >
         {isLoading ? (
@@ -113,7 +117,7 @@ const LoginForm = ({ onSubmit, isLoading }: Props) => {
         ) : (
           <>
             Sign in
-            <ArrowRight />
+            <ArrowRight className="size-5" />
           </>
         )}
       </Button>

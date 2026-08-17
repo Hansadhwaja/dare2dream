@@ -17,27 +17,37 @@ const ProfileCard = () => {
   const avatar = null
 
   return (
-    <Card>
-      <CardContent className="flex items-center justify-between gap-6">
-        <div className="flex items-center gap-4">
-          <UserAvatar alt={name} src={avatar} className="h-20 w-20" />
+    <Card className="rounded-2xl border-border shadow-sm">
+      <CardContent className="flex flex-col gap-6 p-6 sm:p-7 md:flex-row md:items-center md:justify-between">
+        {/* Profile Information */}
+        <div className="flex min-w-0 items-center gap-4 sm:gap-5">
+          <UserAvatar
+            alt={name}
+            src={avatar}
+            className="size-20 shrink-0 sm:size-24"
+          />
 
-          <div className="space-y-1">
-            <h2 className="text-2xl font-semibold text-[#214c3c]">{name}</h2>
+          <div className="min-w-0 space-y-2">
+            <h2 className="truncate text-xl font-semibold text-[#214c3c] sm:text-2xl">
+              {name}
+            </h2>
 
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Mail className="size-4" />
-              <span>{user?.email ?? "-"}</span>
+            <div className="flex items-center gap-2 text-base text-muted-foreground sm:text-lg">
+              <Mail className="size-5 shrink-0 text-[#214c3c]" />
+              <span className="truncate">{user?.email ?? "-"}</span>
             </div>
 
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Globe className="size-4" />
+            <div className="flex items-center gap-2 text-base text-muted-foreground sm:text-lg">
+              <Globe className="size-5 shrink-0 text-[#214c3c]" />
               <span>{user?.country ?? "-"}</span>
             </div>
           </div>
         </div>
 
-        <EditProfileModal />
+        {/* Edit Profile */}
+        <div className="w-full md:w-auto">
+          <EditProfileModal />
+        </div>
       </CardContent>
     </Card>
   )

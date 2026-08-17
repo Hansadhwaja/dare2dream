@@ -25,42 +25,43 @@ const WebinarCard = ({ webinar }: Props) => {
 
           <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/30" />
 
+          {/* Play Button */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <div className="flex size-14 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg">
-              <Play className="ml-1 size-6 fill-current" />
+            <div className="flex size-16 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg sm:size-[72px]">
+              <Play className="ml-1 size-7 fill-current sm:size-8" />
             </div>
           </div>
         </div>
 
-        <CardContent className="space-y-5 p-6">
+        <CardContent className="space-y-6 p-6 sm:p-7">
           {/* Meta */}
-          <div className="flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-1 rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
-              <Clock className="size-3" />
+          <div className="flex flex-wrap gap-2.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-semibold text-secondary sm:text-base">
+              <Clock className="size-4 shrink-0" />
               {webinar.duration}
             </span>
 
-            <span className="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
-              <User className="size-3" />
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-4 py-1.5 text-sm font-medium text-muted-foreground sm:text-base">
+              <User className="size-4 shrink-0" />
               {webinar.speaker}
             </span>
           </div>
 
           {/* Title & Description */}
           <div>
-            <h3 className="font-heading text-2xl leading-tight font-semibold transition-colors group-hover:text-secondary">
+            <h3 className="font-heading text-2xl leading-tight font-semibold transition-colors group-hover:text-secondary sm:text-3xl">
               {webinar.title}
             </h3>
 
-            <p className="mt-3 line-clamp-3 text-sm leading-7 text-muted-foreground">
+            <p className="mt-4 line-clamp-3 text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               {webinar.description}
             </p>
           </div>
 
           {/* CTA */}
-          <div className="inline-flex items-center gap-2 font-semibold text-secondary">
+          <div className="inline-flex items-center gap-2 text-base font-bold text-secondary sm:text-lg">
             Watch Now
-            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
           </div>
         </CardContent>
       </Link>

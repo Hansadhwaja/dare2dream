@@ -18,33 +18,39 @@ const ProfileMenu = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="ml-3 rounded-full p-0 hover:bg-transparent"
+          className="ml-2 h-12 w-12 rounded-full p-0 hover:bg-muted/50"
         >
-          <UserAvatar src={""} />
+          <UserAvatar src="" />
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-48 rounded-xl">
-        <DropdownMenuItem asChild>
+      <DropdownMenuContent
+        align="end"
+        className="w-56 rounded-2xl border border-border p-2 shadow-lg"
+      >
+        <DropdownMenuItem asChild className="rounded-xl">
           <Link
             href="/profile"
-            className="flex cursor-pointer items-center gap-2"
+            className="flex h-12 items-center gap-3 px-3 text-base font-medium"
           >
-            <User className="size-4" />
+            <User className="size-5" />
             Profile
           </Link>
         </DropdownMenuItem>
 
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator className="my-2" />
 
         <DropdownMenuItem
-          className="cursor-pointer text-destructive focus:text-destructive"
           asChild
+          className="rounded-xl p-0 focus:bg-transparent"
         >
           <LogoutAlert
             trigger={
-              <Button variant='destructive' className="flex items-center gap-2 w-full justify-start">
-                <LogOut className="size-4" />
+              <Button
+                variant="ghost"
+                className="h-12 w-full justify-start gap-3 rounded-xl px-3 text-base font-medium text-destructive hover:bg-destructive/10 hover:text-destructive"
+              >
+                <LogOut className="size-5" />
                 Logout
               </Button>
             }

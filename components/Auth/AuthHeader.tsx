@@ -5,14 +5,14 @@ import BrandLogo from "../common/BrandLogo"
 
 const AuthHeader = () => {
   return (
-    <header className="mx-auto flex h-20 max-w-350 items-center justify-between px-5 lg:px-8">
+    <header className="max-container flex h-20 sm:h-24 lg:h-28 items-center justify-between">
       <BrandLogo />
 
       <Link
         href="/"
-        className="font-sans inline-flex items-center gap-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+        className="inline-flex items-center gap-2 rounded-full px-3 py-2 font-sans text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:text-base"
       >
-        <ArrowLeft className="size-3.5" />
+        <ArrowLeft className="size-4 sm:size-5" />
         Back to website
       </Link>
     </header>

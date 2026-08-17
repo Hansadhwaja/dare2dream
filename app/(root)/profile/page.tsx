@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 const ProfilePage = () => {
   return (
     <section className="min-h-screen py-16 lg:py-20">
-      <div className="container mx-auto max-w-4xl px-4">
+      <div className="container mx-auto max-w-4xl px-5 sm:px-6">
         {/* Header */}
         <header className="mb-10">
-          <h1 className="font-serif text-4xl font-semibold tracking-tight text-primary lg:text-5xl">
+          <h1 className="font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl lg:text-6xl">
             My Profile
           </h1>
 
-          <p className="mt-3 max-w-2xl text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
             Manage your personal information, security settings, and account
             preferences.
           </p>
@@ -33,10 +33,11 @@ const ProfilePage = () => {
           {/* Profile */}
           <section className="space-y-5">
             <div>
-              <h2 className="text-lg font-semibold text-primary">
+              <h2 className="text-xl font-semibold text-primary">
                 Personal Information
               </h2>
-              <p className="text-sm text-muted-foreground">
+
+              <p className="mt-1 text-base leading-7 text-muted-foreground">
                 View and update your account details.
               </p>
             </div>
@@ -47,8 +48,11 @@ const ProfilePage = () => {
           {/* Account */}
           <section className="space-y-5">
             <div>
-              <h2 className="text-lg font-semibold text-primary">Account</h2>
-              <p className="text-sm text-muted-foreground">
+              <h2 className="text-xl font-semibold text-primary">
+                Account
+              </h2>
+
+              <p className="mt-1 text-base leading-7 text-muted-foreground">
                 Manage your password and account session.
               </p>
             </div>
@@ -62,10 +66,11 @@ const ProfilePage = () => {
           {/* Danger Zone */}
           <section className="space-y-5">
             <div>
-              <h2 className="text-lg font-semibold text-destructive">
+              <h2 className="text-xl font-semibold text-destructive">
                 Danger Zone
               </h2>
-              <p className="text-sm text-muted-foreground">
+
+              <p className="mt-1 text-base leading-7 text-muted-foreground">
                 Actions performed here are permanent and cannot be undone.
               </p>
             </div>

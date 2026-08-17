@@ -32,14 +32,15 @@ const MobileNav = ({
 }: MobileNavProps) => {
   return (
     <Sheet>
+      {/* Menu Button */}
       <SheetTrigger asChild className="lg:hidden">
         <Button
           variant="ghost"
           size="icon"
           className={
             transparent
-              ? "size-10 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
-              : "size-10 rounded-full border border-border bg-background text-foreground shadow-sm hover:bg-muted"
+              ? "size-10 rounded-full text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              : "size-10 rounded-full text-foreground hover:bg-muted"
           }
           aria-label="Open navigation menu"
         >
@@ -47,56 +48,75 @@ const MobileNav = ({
         </Button>
       </SheetTrigger>
 
+      {/* Mobile Drawer */}
       <SheetContent
         side="right"
-        className="w-[320px] border-l border-border bg-background px-6 shadow-2xl sm:w-[380px]"
+        className="w-[300px] border-l border-border bg-background px-6 shadow-2xl sm:w-[360px]"
       >
-        <SheetHeader className="border-b border-border pb-6">
+        {/* Header */}
+        <SheetHeader className="border-b border-border pb-5">
           <SheetTitle className="flex items-center">
             <BrandLogo />
           </SheetTitle>
         </SheetHeader>
 
         <div className="flex h-full flex-col">
-          <nav className="mt-8 flex flex-col gap-1.5">
+          {/* Navigation */}
+          <nav className="mt-8 flex flex-col gap-2">
             {items.map((item) => (
               <NavLink
                 key={item.href}
                 href={item.href}
-                className="w-full rounded-xl px-4 py-3.5 text-[15px]"
+                className="w-full justify-start rounded-none px-1 py-3 text-base"
+                mobile
               >
                 {item.label}
               </NavLink>
             ))}
           </nav>
 
-          {/* Auth Actions */}
-          <div className="mt-8">
+          {/* Divider */}
+          <div className="my-8 h-px bg-border" />
+
+          {/* Auth */}
+          <div>
             {isAuthenticated ? (
-              <div className="rounded-2xl border border-border bg-muted p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold">Welcome back</p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    Welcome back
+                  </p>
 
-                    <p className="text-sm text-muted-foreground">
-                      Access your account
-                    </p>
-                  </div>
-
-                  <ProfileMenu />
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    Manage your account
+                  </p>
                 </div>
+
+                <ProfileMenu />
               </div>
             ) : (
-              <div className="flex flex-col gap-3">
-                <Button asChild variant="outline" className="rounded-xl py-6">
+              <div className="space-y-3">
+                {/* Login */}
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-12 w-full rounded-full font-semibold"
+                >
                   <Link href="/login">
                     <LogIn className="mr-2 size-4" />
                     Login
                   </Link>
                 </Button>
 
-                <Button asChild className="rounded-xl py-6">
-                  <Link href="/register">Join Dare to Dream</Link>
+                {/* Register */}
+                <Button
+                  asChild
+                  className="h-12 w-full rounded-full font-semibold"
+                >
+                  <Link href="/register">
+                    Join Dare to Dream
+                    <ArrowRight className="ml-2 size-4" />
+                  </Link>
                 </Button>
               </div>
             )}

@@ -10,6 +10,7 @@ type NavLinkProps = {
   children: React.ReactNode
   className?: string
   transparent?: boolean
+  mobile?: boolean
 }
 
 const NavLink = ({
@@ -17,6 +18,7 @@ const NavLink = ({
   children,
   className,
   transparent = false,
+  mobile = false,
 }: NavLinkProps) => {
   const pathname = usePathname()
 
@@ -29,31 +31,62 @@ const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "group relative flex items-center rounded-full px-4 py-2 font-sans text-sm font-medium",
-        "transition-all duration-200 ease-out",
+        "group relative flex items-center font-sans transition-all duration-200",
 
-        transparent
-          ? "text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
-          : "text-muted-foreground hover:bg-muted hover:text-foreground",
+        // Desktop
+        !mobile && [
+          "rounded-full px-4 py-2.5 text-base",
+          "font-medium",
+          transparent
+            ? "text-primary-foreground/75 hover:text-primary-foreground"
+            : "text-muted-foreground hover:text-foreground",
 
-        isActive &&
-          (transparent
-            ? "bg-primary-foreground/10 text-primary-foreground"
-            : "bg-muted text-foreground"),
+          isActive &&
+            (transparent
+              ? "font-bold text-primary-foreground"
+              : "font-bold text-foreground"),
+        ],
+
+        // Mobile
+        mobile && [
+          "w-full border-b border-border/60 px-1 py-4",
+          "justify-between text-lg font-medium",
+
+          transparent
+            ? "text-primary-foreground/75 hover:text-primary-foreground"
+            : "text-muted-foreground hover:text-foreground",
+
+          isActive &&
+            (transparent
+              ? "font-bold text-primary-foreground"
+              : "font-bold text-foreground"),
+        ],
 
         className
       )}
     >
       <span className="relative z-10">{children}</span>
 
+      {/* Active indicator */}
       <span
         className={cn(
-          "absolute bottom-1 left-1/2 h-0.5 -translate-x-1/2 rounded-full",
-          "transition-all duration-200",
+          "absolute rounded-full transition-all duration-200",
 
-          isActive
-            ? "w-4 opacity-100"
-            : "w-0 opacity-0 group-hover:w-2 group-hover:opacity-60",
+          // Desktop
+          !mobile && [
+            "bottom-1 left-1/2 h-0.5 -translate-x-1/2",
+            isActive
+              ? "w-4 opacity-100"
+              : "w-0 opacity-0 group-hover:w-2 group-hover:opacity-60",
+          ],
+
+          // Mobile
+          mobile && [
+            "right-1 top-1/2 h-1.5 w-1.5 -translate-y-1/2",
+            isActive
+              ? "opacity-100"
+              : "opacity-0 group-hover:opacity-60",
+          ],
 
           transparent ? "bg-secondary" : "bg-primary"
         )}

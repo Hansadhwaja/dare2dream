@@ -18,3 +18,9 @@ export const updatePassword = (data: ChangePasswordFormValues) => {
     body: JSON.stringify(data),
   })
 }
+
+export const deleteAccount = () => {
+  return apiFetch("/auth/delete-account", {
+    method: "DELETE",
+  })
+}

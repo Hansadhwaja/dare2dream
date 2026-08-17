@@ -1,4 +1,3 @@
-import React from "react"
 import SectionHero from "../common/Hero/SectionHero"
 import WebinarPreview from "./WebinarPreview"
 import { featuredWebinar } from "@/constants"

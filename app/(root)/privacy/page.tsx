@@ -12,9 +12,9 @@ const PrivacyPage = () => {
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero */}
       <section className="border-b border-border">
-        <div className="max-container py-16 lg:py-24">
+        <div className="max-container py-16 sm:py-20 lg:py-24">
           <div className="max-w-4xl">
-            <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary uppercase">
+            <p className="font-sans text-sm font-bold tracking-[0.1em] text-secondary uppercase sm:text-base">
               Privacy
             </p>
 
@@ -24,13 +24,13 @@ const PrivacyPage = () => {
               <span className="text-secondary">matters to us.</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 font-light text-muted-foreground sm:text-xl">
+            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 font-light text-muted-foreground sm:text-xl sm:leading-9">
               We believe trust is the foundation of every meaningful
               relationship. This policy explains how Dare to Dream collects,
               uses, and protects your information.
             </p>
 
-            <p className="mt-6 font-sans text-xs text-muted-foreground/70">
+            <p className="mt-6 font-sans text-sm font-medium text-muted-foreground/75 sm:text-base">
               Last updated: August 2026
             </p>
           </div>
@@ -38,7 +38,7 @@ const PrivacyPage = () => {
       </section>
 
       {/* Content */}
-      <section className="mx-auto max-w-[1000px] px-5 py-16 lg:px-8 lg:py-24">
+      <section className="mx-auto max-w-[1000px] px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
         <div className="space-y-14">
           <PolicySection number="01" title="Information we collect">
             <p>
@@ -56,9 +56,9 @@ const PrivacyPage = () => {
 
           <PolicySection number="02" title="How we use your information">
             <p>
-              We use information we collect to provide and improve our services,
-              manage your account, communicate with you, and provide access to
-              webinars, updates, and other Dare to Dream experiences.
+              We use information we collect to provide and improve our
+              services, manage your account, communicate with you, and provide
+              access to webinars, updates, and other Dare to Dream experiences.
             </p>
 
             <p>
@@ -117,8 +117,8 @@ const PrivacyPage = () => {
             </p>
 
             <p>
-              If you have questions about your information or would like to make
-              a privacy-related request, please contact us.
+              If you have questions about your information or would like to
+              make a privacy-related request, please contact us.
             </p>
           </PolicySection>
 
@@ -130,7 +130,7 @@ const PrivacyPage = () => {
 
             <a
               href="mailto:ivan@daretodreaminc.com"
-              className="mt-4 inline-block font-sans font-medium text-secondary hover:underline"
+              className="mt-4 inline-block font-sans text-base font-semibold text-secondary hover:underline sm:text-lg"
             >
               ivan@daretodreaminc.com
             </a>
@@ -138,11 +138,12 @@ const PrivacyPage = () => {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="border-t border-border bg-secondary">
-        <div className="max-container py-12 lg:py-16">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="max-container py-12 sm:py-14 lg:py-16">
+          <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="font-sans text-[10px] font-semibold tracking-[0.12em] text-secondary-foreground/60 uppercase">
+              <p className="font-sans text-sm font-bold tracking-[0.1em] text-secondary-foreground/65 uppercase sm:text-base">
                 Have a question?
               </p>
 
@@ -153,7 +154,7 @@ const PrivacyPage = () => {
 
             <Link
               href="/contact"
-              className="inline-flex w-fit items-center rounded-full bg-primary px-6 py-3 font-sans text-sm font-semibold text-primary-foreground transition hover:brightness-95"
+              className="inline-flex min-h-12 w-fit items-center rounded-full bg-primary px-7 py-3.5 font-sans text-base font-bold text-primary-foreground transition hover:brightness-95 sm:text-lg"
             >
               Contact us
             </Link>
@@ -175,16 +176,16 @@ const PolicySection = ({
 }) => {
   return (
     <article className="grid gap-5 border-b border-border pb-12 md:grid-cols-[100px_1fr]">
-      <span className="font-sans text-xs font-semibold tracking-[0.12em] text-secondary">
+      <span className="font-sans text-sm font-bold tracking-[0.1em] text-secondary sm:text-base">
         {number}
       </span>
 
       <div>
-        <h2 className="font-heading text-3xl font-semibold tracking-[-0.01em] sm:text-4xl">
+        <h2 className="font-heading text-3xl leading-tight font-semibold tracking-[-0.01em] sm:text-4xl">
           {title}
         </h2>
 
-        <div className="mt-6 space-y-5 font-sans text-[15px] leading-8 font-light text-muted-foreground sm:text-base">
+        <div className="mt-6 space-y-6 font-sans text-base leading-8 font-light text-muted-foreground sm:text-lg sm:leading-9">
           {children}
         </div>
       </div>

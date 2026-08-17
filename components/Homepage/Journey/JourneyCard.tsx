@@ -22,45 +22,53 @@ const JourneyCard = ({
   return (
     <Card
       className={cn(
-        "rounded-[1.75rem] border-0 p-7 shadow-none sm:p-9",
+        "rounded-[1.5rem] border-0 p-6 shadow-none",
+        "sm:rounded-[1.75rem] sm:p-8",
+        "lg:p-9",
         className
       )}
     >
+      {/* Number */}
       <p
         className={cn(
-          "font-sans text-[10px] font-semibold tracking-[0.12em] uppercase",
-          isDark ? "text-white/45" : "text-muted-foreground"
+          "font-sans text-xs font-semibold tracking-[0.12em] uppercase sm:text-sm",
+          isDark ? "text-white/55" : "text-muted-foreground"
         )}
       >
         {number}
       </p>
 
-      <div className="mt-28">
+      <div className="mt-16 sm:mt-24 lg:mt-28">
+        {/* Title */}
         <h3
           className={cn(
-            "max-w-sm font-heading text-4xl leading-[0.95] font-semibold tracking-[-0.015em]",
+            "max-w-sm font-heading text-3xl leading-[1] font-semibold tracking-[-0.015em]",
+            "sm:text-4xl",
             isDark ? "text-white" : "text-card-foreground"
           )}
         >
           {title}
         </h3>
 
+        {/* Description */}
         <p
           className={cn(
-            "mt-4 max-w-sm font-sans text-[14px] leading-7 font-light",
-            isDark ? "text-white/60" : "text-muted-foreground"
+            "mt-4 max-w-sm font-sans text-base leading-7 font-normal",
+            "sm:text-lg sm:leading-8",
+            isDark ? "text-white/75" : "text-muted-foreground"
           )}
         >
           {description}
         </p>
 
+        {/* CTA */}
         {number === "03" && (
           <Link
             href="#join"
-            className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-semibold text-secondary transition-opacity hover:opacity-70"
+            className="mt-7 inline-flex items-center gap-2 font-sans text-base font-semibold text-secondary transition-opacity hover:opacity-70 sm:mt-8"
           >
             Explore our community
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 sm:size-5" />
           </Link>
         )}
       </div>
