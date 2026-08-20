@@ -1,6 +1,6 @@
 import { VideosResponse } from "@/types/video.types"
-import { apiFetch } from "./client"
 import { serverApiFetch } from "./server"
+import { CMSResponse } from "@/types/cms.types"
 
 interface GetVideosParams {
   page?: string
@@ -30,6 +30,6 @@ export const getVideos = (
   return serverApiFetch(url)
 }
 
-export const getCms = (slug: string) => {
-  return apiFetch(`/cms/${slug}`)
+export const getCms = (slug: string): Promise<CMSResponse> => {
+  return serverApiFetch(`/cms/${slug}`)
 }

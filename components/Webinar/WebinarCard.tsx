@@ -12,22 +12,7 @@ interface Props {
 
 const WebinarCard = ({ webinar }: Props) => {
   return (
-    <Card
-      className="
-        group
-        overflow-hidden
-        rounded-[1.75rem]
-        border-border
-        bg-card
-        py-0
-        shadow-sm
-        transition-all
-        duration-300
-        ease-out
-        hover:-translate-y-1
-        hover:shadow-lg
-      "
-    >
+    <Card className="group overflow-hidden rounded-[1.75rem] border-border bg-card py-0 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
       {/* Video */}
       <div className="relative aspect-video overflow-hidden bg-black">
         <video
@@ -35,17 +20,7 @@ const WebinarCard = ({ webinar }: Props) => {
           muted
           playsInline
           preload="metadata"
-          className="
-            absolute
-            inset-0
-            h-full
-            w-full
-            object-cover
-            transition-transform
-            duration-500
-            ease-out
-            group-hover:scale-[1.02]
-          "
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
 
         <div className="absolute inset-0 bg-black/20" />
@@ -59,16 +34,7 @@ const WebinarCard = ({ webinar }: Props) => {
               <Button
                 type="button"
                 size="icon"
-                className="
-                  size-16
-                  rounded-full
-                  bg-white/95
-                  text-primary
-                  shadow-lg
-                  hover:bg-secondary
-                  hover:text-secondary-foreground
-                  sm:size-[72px]
-                "
+                className="size-16 rounded-full bg-white/95 text-primary shadow-lg hover:bg-secondary hover:text-secondary-foreground sm:size-[72px]"
               >
                 <Play className="ml-1 size-7 fill-current sm:size-8" />
               </Button>
@@ -105,18 +71,7 @@ const WebinarCard = ({ webinar }: Props) => {
             <Button
               type="button"
               variant="ghost"
-              className="
-                h-auto
-                gap-2
-                rounded-none
-                p-0
-                text-base
-                font-semibold
-                text-secondary
-                hover:bg-transparent
-                hover:text-secondary
-                sm:text-lg
-              "
+              className="h-auto gap-2 rounded-none p-0 text-base font-semibold text-secondary hover:bg-transparent hover:text-secondary sm:text-lg"
             >
               Watch Now
               <ArrowRight className="size-5" />
