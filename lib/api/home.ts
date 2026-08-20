@@ -1,4 +1,6 @@
+import { VideosResponse } from "@/types/video.types"
 import { apiFetch } from "./client"
+import { serverApiFetch } from "./server"
 
 interface GetVideosParams {
   page?: string
@@ -8,7 +10,9 @@ interface GetVideosParams {
   pageFilter?: string
 }
 
-export const getVideos = (params: GetVideosParams = {}) => {
+export const getVideos = (
+  params: GetVideosParams = {}
+): Promise<VideosResponse> => {
   const { page, limit, sortBy, sortOrder, pageFilter } = params
 
   const qs = new URLSearchParams()
@@ -23,7 +27,7 @@ export const getVideos = (params: GetVideosParams = {}) => {
 
   const url = queryString ? `/videos?${queryString}` : "/videos"
 
-  return apiFetch(url)
+  return serverApiFetch(url)
 }
 
 export const getCms = (slug: string) => {

@@ -1,8 +1,8 @@
-import { Update } from "@/types/update.types"
 import UpdateCard from "./UpdateCard"
+import { Video } from "@/types/video.types"
 
 interface Props {
-  updates: Update[]
+  updates: Video[]
 }
 
 const RecentUpdates = ({ updates }: Props) => {
@@ -29,7 +29,7 @@ const RecentUpdates = ({ updates }: Props) => {
       {/* Updates */}
       <div className="grid gap-7 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
         {updates.map((update) => (
-          <UpdateCard key={update.id} update={update} />
+          <UpdateCard key={update._id} update={update} />
         ))}
       </div>
     </section>

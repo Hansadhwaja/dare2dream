@@ -1,7 +1,23 @@
+import { getVideos } from "@/lib/api/home"
 import { ArrowRight, Play } from "lucide-react"
 import Link from "next/link"
 
-const WelcomeVideoSection = () => {
+import VideoPlayer from "@/components/common/Video/VideoPlayer"
+import { Button } from "@/components/ui/button"
+
+const WelcomeVideoSection = async () => {
+  let welcomeVideo = null
+
+  try {
+    const videosRes = await getVideos({
+      pageFilter: "home",
+    })
+
+    welcomeVideo = videosRes?.videos?.[0] ?? null
+  } catch (error) {
+    console.error("Failed to fetch welcome video:", error)
+  }
+
   return (
     <section id="welcome" className="bg-card py-14 sm:py-16 lg:py-24">
       <div className="max-container grid gap-10 sm:gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-14">
@@ -32,15 +48,44 @@ const WelcomeVideoSection = () => {
 
         {/* Video */}
         <div className="relative aspect-[16/9] overflow-hidden rounded-[1.5rem] bg-primary sm:rounded-[1.75rem]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,color-mix(in_oklab,var(--secondary)_70%,transparent),transparent_25%),linear-gradient(135deg,color-mix(in_oklab,var(--primary)_80%,white),var(--primary))]" />
+          {welcomeVideo ? (
+            <>
+              <video
+                src={welcomeVideo.videoUrl}
+                muted
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
 
-          <button
-            type="button"
-            className="absolute inset-0 m-auto grid size-16 place-items-center rounded-full bg-card text-primary shadow-2xl transition-transform hover:scale-105 sm:size-20"
-            aria-label="Play Dare to Dream introduction video"
-          >
-            <Play className="ml-1 size-6 fill-current sm:size-7" />
-          </button>
+              <div className="absolute inset-0 bg-black/20" />
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <VideoPlayer
+                  video={welcomeVideo.videoUrl}
+                  title={welcomeVideo.title}
+                  trigger={
+                    <Button
+                      type="button"
+                      size="icon"
+                      className="size-16 rounded-full bg-card text-primary shadow-2xl transition-transform hover:scale-105 hover:bg-card sm:size-20"
+                      aria-label="Play Dare to Dream introduction video"
+                    >
+                      <Play className="ml-1 size-6 fill-current sm:size-7" />
+                    </Button>
+                  }
+                />
+              </div>
+            </>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,color-mix(in_oklab,var(--secondary)_70%,transparent),transparent_25%),linear-gradient(135deg,color-mix(in_oklab,var(--primary)_80%,white),var(--primary))]" />
+
+              <div className="relative flex size-16 items-center justify-center rounded-full bg-card text-primary shadow-2xl sm:size-20">
+                <Play className="ml-1 size-6 fill-current sm:size-7" />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

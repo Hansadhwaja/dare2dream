@@ -1,8 +1,12 @@
+import { Video } from "@/types/video.types"
 import SectionHero from "../common/Hero/SectionHero"
 import WebinarPreview from "./WebinarPreview"
-import { featuredWebinar } from "@/constants"
 
-const WebinarHero = () => {
+interface Props{
+video:Video
+}
+
+const WebinarHero = ({video}:Props) => {
   return (
     <SectionHero
       badge="Member Library"
@@ -15,7 +19,7 @@ const WebinarHero = () => {
       }
       description="Access exclusive webinars featuring inspiring conversations, leadership insights, entrepreneurship, faith, and personal development."
     >
-      <WebinarPreview webinar={featuredWebinar} />
+      <WebinarPreview webinar={video} />
     </SectionHero>
   )
 }

@@ -1,9 +1,12 @@
-import React from "react"
 import SectionHero from "../common/Hero/SectionHero"
 import UpdatePreview from "./UpdatePreview"
-import { featuredUpdate } from "@/constants"
+import { Video } from "@/types/video.types"
 
-const LatestUpdateHero = () => {
+interface Props {
+  video: Video
+}
+
+const LatestUpdateHero = ({ video }: Props) => {
   return (
     <SectionHero
       badge="Community Updates"
@@ -16,7 +19,7 @@ const LatestUpdateHero = () => {
       }
       description="Keep up with the latest announcements, upcoming events, new webinar releases, community highlights, and everything happening at Dare to Dream."
     >
-      <UpdatePreview update={featuredUpdate} />
+      <UpdatePreview update={video} />
     </SectionHero>
   )
 }

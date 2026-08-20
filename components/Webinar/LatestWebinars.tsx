@@ -1,8 +1,8 @@
-import { Webinar } from "@/types/webinar.types"
 import WebinarCard from "./WebinarCard"
+import { Video } from "@/types/video.types"
 
 interface Props {
-  webinars: Webinar[]
+  webinars: Video[]
 }
 
 const LatestWebinars = ({ webinars }: Props) => {
@@ -25,8 +25,8 @@ const LatestWebinars = ({ webinars }: Props) => {
 
           <div className="flex flex-col items-start gap-5 lg:items-end">
             <p className="max-w-md text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              Discover our latest conversations on leadership,
-              entrepreneurship, purpose, and personal growth.
+              Discover our latest conversations on leadership, entrepreneurship,
+              purpose, and personal growth.
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ const LatestWebinars = ({ webinars }: Props) => {
         {/* Cards */}
         <div className="grid gap-7 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
           {webinars.map((webinar) => (
-            <WebinarCard key={webinar.id} webinar={webinar} />
+            <WebinarCard key={webinar._id} webinar={webinar} />
           ))}
         </div>
       </div>
