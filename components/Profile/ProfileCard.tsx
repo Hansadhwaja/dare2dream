@@ -1,55 +1,34 @@
-"use client"
-
 import { Globe, Mail } from "lucide-react"
-import UserAvatar from "../common/Avatar/UserAvatar"
 import { Card, CardContent } from "../ui/card"
-import { useAuthStore } from "@/store/auth/authStore"
 import EditProfileModal from "./Modal/EditProfileModal"
+import { getProfile } from "@/lib/api/server/profile"
+import UserProfile from "./UserProfile"
+import ProfileInitializer from "./ProfileInitializer"
+import ProfileContent from "./ProfileContent"
 
-const ProfileCard = () => {
-  const user = useAuthStore((state) => state.user)
-
-  const name =
-    user?.firstName && user?.lastName
-      ? `${user.firstName} ${user.lastName}`
-      : "-"
-
-  const avatar = null
+const ProfileCard = async () => {
+  const profileRes = await getProfile()
+  const user = profileRes.user
 
   return (
-    <Card className="rounded-2xl border-border shadow-sm">
-      <CardContent className="flex flex-col gap-6 p-6 sm:p-7 md:flex-row md:items-center md:justify-between">
-        {/* Profile Information */}
-        <div className="flex min-w-0 items-center gap-4 sm:gap-5">
-          <UserAvatar
-            alt={name}
-            src={avatar}
-            className="size-20 shrink-0 sm:size-24"
-          />
+    <>
+      <ProfileInitializer user={user} />
+      <Card className="rounded-2xl border-border shadow-sm">
+        <CardContent className="flex flex-col gap-6 p-6 sm:p-7 md:flex-row md:items-center md:justify-between">
+          {/* Profile Information */}
+          <div className="flex min-w-0 items-center gap-4 sm:gap-5">
+            <UserProfile />
 
-          <div className="min-w-0 space-y-2">
-            <h2 className="truncate text-xl font-semibold text-[#214c3c] sm:text-2xl">
-              {name}
-            </h2>
-
-            <div className="flex items-center gap-2 text-base text-muted-foreground sm:text-lg">
-              <Mail className="size-5 shrink-0 text-[#214c3c]" />
-              <span className="truncate">{user?.email ?? "-"}</span>
-            </div>
-
-            <div className="flex items-center gap-2 text-base text-muted-foreground sm:text-lg">
-              <Globe className="size-5 shrink-0 text-[#214c3c]" />
-              <span>{user?.country ?? "-"}</span>
-            </div>
+            <ProfileContent />
           </div>
-        </div>
 
-        {/* Edit Profile */}
-        <div className="w-full md:w-auto">
-          <EditProfileModal />
-        </div>
-      </CardContent>
-    </Card>
+          {/* Edit Profile */}
+          <div className="w-full md:w-auto">
+            <EditProfileModal />
+          </div>
+        </CardContent>
+      </Card>
+    </>
   )
 }
 

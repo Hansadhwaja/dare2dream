@@ -1,6 +1,6 @@
 import LatestUpdateHero from "@/components/LatestUpdate/LatestUpdateHero"
 import RecentUpdates from "@/components/LatestUpdate/RecentUpdates"
-import { getVideos } from "@/lib/api/home"
+import { getVideos } from "@/lib/api/server/home"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {

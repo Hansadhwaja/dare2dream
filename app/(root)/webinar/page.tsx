@@ -1,7 +1,7 @@
 import FeaturedWebinar from "@/components/Webinar/FeaturedWebinar"
 import LatestWebinars from "@/components/Webinar/LatestWebinars"
 import WebinarHero from "@/components/Webinar/WebinarHero"
-import { getVideos } from "@/lib/api/home"
+import { getVideos } from "@/lib/api/server/home"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -14,7 +14,6 @@ const WebinarPage = async () => {
   const videosRes = await getVideos({
     pageFilter: "webinar",
   })
-  console.log(videosRes)
 
   const webinarVideos = videosRes?.videos ?? []
 

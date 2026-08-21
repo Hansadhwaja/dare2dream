@@ -5,7 +5,9 @@ import {
 import { apiFetch } from "./client"
 import { ProfileUpdateResponse } from "@/types/profile.types"
 
-export const updateProfile = (data: ProfileFormValues) => {
+export const updateProfile = (
+  data: ProfileFormValues | { profilePic: string }
+) => {
   return apiFetch<ProfileUpdateResponse>("/auth/profile", {
     method: "PUT",
     body: JSON.stringify(data),
@@ -24,3 +26,4 @@ export const deleteAccount = () => {
     method: "DELETE",
   })
 }
+

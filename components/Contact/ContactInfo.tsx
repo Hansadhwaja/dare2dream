@@ -17,13 +17,13 @@ const ContactInfo = () => {
           <InfoItem
             icon={<Mail className="size-5" />}
             title="Email"
-            value="hello@daretodream.org"
+            value="ivan@daretodreaminc.com"
           />
 
           <InfoItem
             icon={<Phone className="size-5" />}
             title="Phone"
-            value="+1 (555) 123-4567"
+            value="+14803312624"
           />
 
           <InfoItem

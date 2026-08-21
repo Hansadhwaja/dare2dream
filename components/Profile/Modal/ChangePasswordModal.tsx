@@ -12,10 +12,10 @@ import {
 import { useState } from "react"
 import { ChangePasswordFormValues } from "@/schemas/Profile/profile.schemas"
 import { toast } from "sonner"
-import { updatePassword } from "@/lib/api/profile"
+import { updatePassword } from "@/lib/api/client/profile"
 import ChangePasswordForm from "../Form/ChangePasswordForm"
 import { useAuthStore } from "@/store/auth/authStore"
-import { clearServerToken } from "@/lib/api/auth"
+import { clearServerToken } from "@/lib/api/client/auth"
 import { useRouter } from "next/navigation"
 
 const ChangePasswordModal = () => {

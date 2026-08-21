@@ -1,3 +1,5 @@
+"use client"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,8 +12,10 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { LogOut, User } from "lucide-react"
 import LogoutAlert from "../common/Alert/LogoutAlert"
+import { useAuthStore } from "@/store/auth/authStore"
 
 const ProfileMenu = () => {
+  const user = useAuthStore((state) => state.user)
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -20,7 +24,7 @@ const ProfileMenu = () => {
           size="icon"
           className="ml-2 h-12 w-12 rounded-full p-0 hover:bg-muted/50"
         >
-          <UserAvatar src="" />
+          <UserAvatar src={user?.profilePic ?? null} alt={user?.firstName} />
         </Button>
       </DropdownMenuTrigger>
 

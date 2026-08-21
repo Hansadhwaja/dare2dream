@@ -6,7 +6,7 @@ import NextHomeSection from "@/components/Homepage/NextHome"
 import OurStorySection from "@/components/Homepage/Story"
 import VisionSection from "@/components/Homepage/Vision"
 import WelcomeVideoSection from "@/components/Homepage/Welcome"
-import { getCms } from "@/lib/api/home"
+import { getCms } from "@/lib/api/server/home"
 import { HomeContent } from "@/types/cms.types"
 
 export default async function HomePage() {

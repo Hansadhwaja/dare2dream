@@ -9,7 +9,7 @@ import AuthAside from "@/components/Auth/AuthAside"
 import AuthCard from "@/components/Auth/AuthCard"
 import RegisterForm from "@/components/Auth/Register/Form/RegisterForm"
 import { RegisterFormValues } from "@/schemas/Auth/register.schemas"
-import { registerUser } from "@/lib/api/auth"
+import { registerUser } from "@/lib/api/client/auth"
 
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false)

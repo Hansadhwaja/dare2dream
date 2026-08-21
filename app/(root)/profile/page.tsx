@@ -48,9 +48,7 @@ const ProfilePage = () => {
           {/* Account */}
           <section className="space-y-5">
             <div>
-              <h2 className="text-xl font-semibold text-primary">
-                Account
-              </h2>
+              <h2 className="text-xl font-semibold text-primary">Account</h2>
 
               <p className="mt-1 text-base leading-7 text-muted-foreground">
                 Manage your password and account session.

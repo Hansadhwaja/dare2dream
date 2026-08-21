@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import CmsCTa from "@/components/common/CMS/CmsCTa"
 import PolicyContent from "@/components/Policy/PolicyContent"
-import { getCms } from "@/lib/api/home"
+import { getCms } from "@/lib/api/server/home"
 import { PrivacyPolicyContent } from "@/types/cms.types"
 
 export const metadata: Metadata = {

@@ -7,7 +7,7 @@ import LoginForm from "@/components/Auth/Login/Form/LoginForm"
 import { LoginFormValues } from "@/schemas/Auth/login.schemas"
 import { useState } from "react"
 import { toast } from "sonner"
-import { loginUser, setServerToken } from "@/lib/api/auth"
+import { loginUser, setServerToken } from "@/lib/api/client/auth"
 import { useAuthStore } from "@/store/auth/authStore"
 import { useRouter } from "next/navigation"
 

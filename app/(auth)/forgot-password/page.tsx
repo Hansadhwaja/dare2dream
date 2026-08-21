@@ -2,7 +2,7 @@
 
 import AuthCard from "@/components/Auth/AuthCard"
 import ForgotPasswordForm from "@/components/Auth/ForgotPassword/Form/ForgotPasswordForm"
-import { forgotPasswordUser } from "@/lib/api/auth"
+import { forgotPasswordUser } from "@/lib/api/client/auth"
 import { ForgotPasswordFormValues } from "@/schemas/Auth/forgot_password.schemas"
 import { useAuthStore } from "@/store/auth/authStore"
 import { ArrowLeft, LockKeyhole } from "lucide-react"

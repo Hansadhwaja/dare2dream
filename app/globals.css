@@ -189,6 +189,6 @@
 
 @layer utilities {
   .max-container {
-    @apply mx-auto max-w-350 px-5 lg:px-8;
+    @apply mx-auto max-w-350 px-3 sm:px-5 lg:px-8;
   }
 }

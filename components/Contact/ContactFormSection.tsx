@@ -5,29 +5,35 @@ import ContactForm from "./Form/ContactForm"
 
 const ContactFormSection = () => {
   return (
-    <section id="contact-form" className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
-      <div className="grid gap-12 lg:grid-cols-[1.3fr_.7fr]">
+    <section
+      id="contact-form"
+      className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
+    >
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_.7fr] lg:gap-12">
         {/* Form */}
-        <div className="rounded-[2rem] border bg-card p-8 shadow-sm lg:p-10">
-          <div className="mb-8">
-            <p className="text-sm font-semibold tracking-[0.2em] text-secondary uppercase">
+        <div className="w-full rounded-3xl border bg-card p-5 shadow-sm sm:rounded-[2rem] sm:p-7 md:p-8 lg:p-10">
+          <div className="mb-6 sm:mb-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary sm:text-sm sm:tracking-[0.2em]">
               Contact Us
             </p>
 
-            <h2 className="mt-3 font-heading text-4xl font-semibold">
+            <h2 className="mt-2 font-heading text-2xl font-semibold leading-tight sm:mt-3 sm:text-3xl md:text-4xl">
               Send us a message
             </h2>
 
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-3 text-sm leading-6 text-muted-foreground sm:mt-4 sm:text-base sm:leading-7">
               Have a question or partnership opportunity? Fill out the form
               below and our team will get back to you shortly.
             </p>
           </div>
+
           <ContactForm />
         </div>
 
         {/* Contact Info */}
-        <ContactInfo />
+        <div className="w-full">
+          <ContactInfo />
+        </div>
       </div>
     </section>
   )

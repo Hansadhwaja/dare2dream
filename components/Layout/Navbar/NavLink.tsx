@@ -31,66 +31,72 @@ const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "group relative flex items-center font-sans transition-all duration-200",
+        "group relative flex items-center font-sans transition-all duration-300 ease-out",
 
         // Desktop
         !mobile && [
-          "rounded-full px-4 py-2.5 text-base",
-          "font-medium",
-          transparent
-            ? "text-primary-foreground/75 hover:text-primary-foreground"
-            : "text-muted-foreground hover:text-foreground",
+          "rounded-full px-4 py-3",
+          "text-base font-semibold tracking-[-0.005em]",
+          "hover:-translate-y-0.5",
 
-          isActive &&
-            (transparent
-              ? "font-bold text-primary-foreground"
-              : "font-bold text-foreground"),
+          transparent
+            ? "text-white hover:text-white"
+            : "text-foreground hover:text-foreground",
         ],
 
         // Mobile
         mobile && [
-          "w-full border-b border-border/60 px-1 py-4",
-          "justify-between text-lg font-medium",
+          "relative flex w-full items-center justify-between",
+          "border-b border-border/60",
+          "px-1 py-5",
+          "text-xl font-semibold tracking-[-0.005em]",
+          "transition-all duration-300",
 
           transparent
-            ? "text-primary-foreground/75 hover:text-primary-foreground"
-            : "text-muted-foreground hover:text-foreground",
+            ? "text-white"
+            : "text-foreground",
 
-          isActive &&
-            (transparent
-              ? "font-bold text-primary-foreground"
-              : "font-bold text-foreground"),
+          "hover:pl-2",
         ],
 
         className
       )}
     >
-      <span className="relative z-10">{children}</span>
+      {/* Text */}
+      <span className="relative z-10">
+        {children}
+      </span>
 
-      {/* Active indicator */}
-      <span
-        className={cn(
-          "absolute rounded-full transition-all duration-200",
+      {/* Desktop Active Indicator */}
+      {!mobile && (
+        <span
+          className={cn(
+            "absolute right-3 bottom-1 left-3 h-0.5 rounded-full",
+            "bg-secondary",
+            "transition-all duration-300 ease-out",
 
-          // Desktop
-          !mobile && [
-            "bottom-1 left-1/2 h-0.5 -translate-x-1/2",
             isActive
-              ? "w-4 opacity-100"
-              : "w-0 opacity-0 group-hover:w-2 group-hover:opacity-60",
-          ],
+              ? "scale-x-100 opacity-100"
+              : "scale-x-0 opacity-0 group-hover:scale-x-75 group-hover:opacity-100"
+          )}
+        />
+      )}
 
-          // Mobile
-          mobile && [
-            "right-1 top-1/2 h-1.5 w-1.5 -translate-y-1/2",
+      {/* Mobile Active Indicator */}
+      {mobile && (
+        <span
+          className={cn(
+            "absolute right-0 top-1/2",
+            "h-8 w-1 -translate-y-1/2 rounded-full",
+            "bg-secondary",
+            "transition-all duration-300 ease-out",
+
             isActive
-              ? "opacity-100"
-              : "opacity-0 group-hover:opacity-60",
-          ],
-
-          transparent ? "bg-secondary" : "bg-primary"
-        )}
-      />
+              ? "scale-y-100 opacity-100"
+              : "scale-y-0 opacity-0 group-hover:scale-y-75 group-hover:opacity-60"
+          )}
+        />
+      )}
     </Link>
   )
 }

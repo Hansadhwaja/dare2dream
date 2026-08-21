@@ -1,4 +1,4 @@
-import { getVideos } from "@/lib/api/home"
+import { getVideos } from "@/lib/api/server/home"
 import { ArrowRight, Play } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"

@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { clearServerToken } from "@/lib/api/auth"
+import { clearServerToken } from "@/lib/api/client/auth"
 import { useAuthStore } from "@/store/auth/authStore"
 import { useRouter } from "next/navigation"
 import type { ReactNode } from "react"

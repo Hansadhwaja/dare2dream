@@ -13,21 +13,57 @@ interface UpdatePreviewProps {
 
 const UpdatePreview = ({ update }: UpdatePreviewProps) => {
   return (
-    <div className="w-full max-w-lg self-center">
-      <div className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/10 shadow-xl backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl">
-        {/* Video Preview */}
-        <div className="relative aspect-16/10 overflow-hidden bg-primary">
-          {/* Thumbnail */}
+    <div className="mx-auto w-full max-w-lg self-center">
+      <div
+        className="
+          group
+          overflow-hidden
+          rounded-[1.5rem]
+          border
+          border-white/10
+          bg-white/[0.08]
+          shadow-xl
+          backdrop-blur-xl
+          transition-all
+          duration-500
+          ease-out
+          hover:-translate-y-1
+          hover:border-secondary/30
+          hover:shadow-2xl
+          hover:shadow-secondary/10
+          sm:rounded-[1.75rem]
+        "
+      >
+        {/* Thumbnail */}
+        <div className="relative aspect-video overflow-hidden bg-primary sm:aspect-[16/10]">
           <Image
             src={update.thumbnail}
             alt={update.title}
             fill
             sizes="(max-width: 768px) 100vw, 512px"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            className="
+              object-cover
+              transition-transform
+              duration-700
+              ease-out
+              group-hover:scale-[1.04]
+            "
           />
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-black/80
+              via-black/20
+              to-black/5
+              transition-all
+              duration-500
+              group-hover:from-black/85
+            "
+          />
 
           {/* Play Button */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -36,46 +72,93 @@ const UpdatePreview = ({ update }: UpdatePreviewProps) => {
               title={update.title}
               trigger={
                 <div className="group/play relative">
-                  {/* Outer ring */}
-                  <div className="absolute -inset-2 rounded-full border border-white/30 opacity-0 transition-all duration-500 group-hover/play:-inset-3 group-hover/play:opacity-100" />
+                  {/* Outer Ring */}
+                  <div
+                    className="
+                      absolute
+                      -inset-2
+                      rounded-full
+                      border
+                      border-white/30
+                      opacity-0
+                      transition-all
+                      duration-500
+                      group-hover/play:-inset-3
+                      group-hover/play:opacity-100
+                    "
+                  />
 
                   <Button
                     type="button"
                     size="icon"
-                    className="relative size-16 rounded-full bg-white/95 text-primary shadow-[0_10px_35px_rgba(0,0,0,0.25)] transition-all duration-500 ease-out group-hover/play:scale-110 group-active/play:scale-95 hover:bg-secondary hover:text-secondary-foreground sm:size-[72px]"
+                    className="
+                      relative
+                      size-14
+                      rounded-full
+                      bg-white/95
+                      text-primary
+                      shadow-[0_10px_35px_rgba(0,0,0,0.25)]
+                      transition-all
+                      duration-300
+                      ease-out
+                      hover:scale-110
+                      hover:bg-secondary
+                      hover:text-secondary-foreground
+                      active:scale-95
+                      sm:size-[72px]
+                    "
                   >
-                    <Play className="ml-1 size-7 fill-current transition-transform duration-300 group-hover/play:scale-105 sm:size-8" />
+                    <Play className="ml-1 size-6 fill-current transition-transform duration-300 group-hover/play:scale-105 sm:size-8" />
                   </Button>
                 </div>
               }
             />
           </div>
 
-          {/* Page Badge */}
-          <div className="absolute top-4 right-4 sm:top-5 sm:right-5">
-            <Badge className="h-8 rounded-full border border-white/20 bg-secondary/95 px-4 py-1.5 text-sm font-semibold tracking-wide text-secondary-foreground shadow-md backdrop-blur-sm sm:text-base">
+          {/* Badge */}
+          <div className="absolute top-4 left-4 sm:top-5 sm:left-5">
+            <Badge
+              className="
+                h-7
+                rounded-full
+                border
+                border-white/20
+                bg-secondary/95
+                px-3.5
+                text-xs
+                font-semibold
+                tracking-wide
+                text-secondary-foreground
+                shadow-md
+                backdrop-blur-sm
+                sm:h-8
+                sm:px-4
+                sm:text-sm
+              "
+            >
               Latest Update
             </Badge>
           </div>
 
-          {/* Video Title */}
-          <div className="absolute right-5 bottom-5 left-5">
-            <h3 className="font-heading text-2xl leading-tight font-semibold text-white sm:text-3xl">
+          {/* Title */}
+          <div className="absolute right-4 bottom-4 left-4 sm:right-5 sm:bottom-5 sm:left-5">
+            <h3 className="line-clamp-2 font-heading text-xl leading-tight font-semibold text-white sm:text-2xl">
               {update.title}
             </h3>
           </div>
         </div>
 
         {/* Content */}
-        <div className="space-y-6 p-6 sm:p-7">
+        <div className="space-y-4 p-5 sm:space-y-5 sm:p-7">
           {/* Date */}
-          <div className="flex items-center gap-2.5 text-base font-medium text-white/75 sm:text-lg">
-            <CalendarDays className="size-5 shrink-0 text-secondary" />
+          <div className="flex items-center gap-2.5 text-sm font-medium text-white/75 sm:text-base">
+            <CalendarDays className="size-4 shrink-0 text-secondary sm:size-5" />
+
             <span>{formatDate(update.date)}</span>
           </div>
 
           {/* Description */}
-          <p className="line-clamp-3 text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
+          <p className="line-clamp-3 text-sm leading-6 text-white/75 sm:text-base sm:leading-7">
             {update.description}
           </p>
 
@@ -87,10 +170,22 @@ const UpdatePreview = ({ update }: UpdatePreviewProps) => {
               <Button
                 type="button"
                 variant="ghost"
-                className="group/cta h-auto gap-2 rounded-none p-0 text-base font-bold text-secondary hover:bg-transparent hover:text-secondary/80 sm:text-lg"
+                className="
+                  group/cta
+                  h-auto
+                  gap-2
+                  rounded-none
+                  p-0
+                  text-sm
+                  font-bold
+                  text-secondary
+                  hover:bg-transparent
+                  hover:text-secondary/80
+                  sm:text-base
+                "
               >
                 Watch Now
-                <ArrowRight className="transition-transform duration-300 group-hover/cta:translate-x-1" />
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover/cta:translate-x-1 sm:size-5" />
               </Button>
             }
           />

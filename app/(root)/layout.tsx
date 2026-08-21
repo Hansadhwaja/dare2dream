@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 
 import Footer from "@/components/Layout/Footer"
 import Navbar from "@/components/Layout/Navbar"
-import { getCms } from "@/lib/api/home"
+import { getCms } from "@/lib/api/server/home"
 import { FooterContent } from "@/types/footer.types"
 
 interface Props {

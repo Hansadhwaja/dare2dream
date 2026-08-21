@@ -10,6 +10,7 @@ export const profileSchema = z.object({
 
 export type ProfileFormValues = z.infer<typeof profileSchema>
 
+
 export const changePasswordSchema = z
   .object({
     password: z.string().min(8, "Password must be at least 8 characters."),

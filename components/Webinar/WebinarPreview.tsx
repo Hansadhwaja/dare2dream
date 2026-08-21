@@ -12,8 +12,8 @@ interface Props {
 
 const WebinarPreview = ({ webinar }: Props) => {
   return (
-    <div className="group mx-auto block w-full max-w-xl overflow-hidden rounded-[30px] border border-white/10 bg-white/10 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 hover:shadow-2xl hover:shadow-secondary/10">
-      {/* Video Thumbnail */}
+    <div className="group mx-auto w-full max-w-xl overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.08] shadow-xl backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:border-secondary/30 hover:shadow-2xl hover:shadow-secondary/10 sm:rounded-[1.75rem]">
+      {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden bg-primary">
         <Image
           src={webinar.thumbnail}
@@ -25,7 +25,7 @@ const WebinarPreview = ({ webinar }: Props) => {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/5 transition-colors duration-500 group-hover:from-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/5 transition-all duration-500 group-hover:from-black/80" />
 
         {/* Play Button */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -35,23 +35,14 @@ const WebinarPreview = ({ webinar }: Props) => {
             trigger={
               <div className="group/play relative">
                 {/* Outer ring */}
-                <div className="absolute -inset-2 rounded-full border border-white/30 opacity-0 transition-all duration-500 group-hover/play:-inset-3 group-hover/play:opacity-100" />
+                <div className="absolute -inset-2 rounded-full border border-white/30 opacity-0 transition-all duration-500 group-hover/play:-inset-3 group-hover/play:opacity-100 sm:-inset-2.5" />
 
                 <Button
                   type="button"
                   size="icon"
-                  className="
-                    relative size-16 rounded-full
-                    bg-white/95 text-primary
-                    shadow-[0_10px_35px_rgba(0,0,0,0.3)]
-                    transition-all duration-500
-                    hover:bg-secondary hover:text-secondary-foreground
-                    group-hover/play:scale-110
-                    group-active/play:scale-95
-                    sm:size-20
-                  "
+                  className="relative size-14 rounded-full bg-white/95 text-primary shadow-[0_10px_35px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:scale-110 hover:bg-secondary hover:text-secondary-foreground active:scale-95 sm:size-[72px]"
                 >
-                  <Play className="ml-1 size-7 fill-current transition-transform duration-300 sm:size-8" />
+                  <Play className="ml-1 size-6 fill-current transition-transform duration-300 group-hover/play:scale-105 sm:size-8" />
                 </Button>
               </div>
             }
@@ -60,22 +51,22 @@ const WebinarPreview = ({ webinar }: Props) => {
       </div>
 
       {/* Content */}
-      <div className="space-y-5 p-6 sm:p-8">
+      <div className="space-y-4 p-5 sm:space-y-5 sm:p-7">
         {/* Date */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/15 px-4 py-1.5 text-sm font-semibold text-secondary sm:text-base">
-            <Calendar className="size-4" />
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/15 px-3.5 py-1.5 text-sm font-semibold text-secondary sm:px-4 sm:text-base">
+            <Calendar className="size-4 shrink-0" />
             {formatDate(webinar.date)}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-heading text-3xl leading-tight font-semibold text-white sm:text-4xl">
+        <h3 className="font-heading text-2xl leading-tight font-semibold text-white sm:text-3xl">
           {webinar.title}
         </h3>
 
         {/* Description */}
-        <p className="line-clamp-3 text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
+        <p className="line-clamp-3 text-sm leading-6 text-white/75 sm:text-base sm:leading-7">
           {webinar.description}
         </p>
       </div>

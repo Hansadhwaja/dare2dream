@@ -4,25 +4,40 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 export async function apiFetch<T>(
   endpoint: string,
-  options?: RequestInit
+  options: RequestInit = {}
 ): Promise<T> {
   const token = useAuthStore.getState().token
+
+  const isFormData = options.body instanceof FormData
 
   const response = await fetch(`${API_URL}${endpoint}`, {
     ...options,
     headers: {
-      "Content-Type": "application/json",
+      ...(!isFormData && {
+        "Content-Type": "application/json",
+      }),
 
       ...(token && {
         Authorization: `Bearer ${token}`,
       }),
 
-      ...options?.headers,
+      ...options.headers,
     },
   })
 
   if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`)
+    let errorData
+
+    try {
+      errorData = await response.json()
+    } catch {
+      errorData = null
+    }
+
+    throw {
+      status: response.status,
+      data: errorData,
+    }
   }
 
   return response.json()

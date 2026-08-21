@@ -5,7 +5,8 @@ export type User = {
   email: string
   status: UserStatus
   role: UserRole
-  country?: string
+  country: string
+  profilePic: string
 }
 
 export type UserRole = "user" | "admin"
@@ -22,4 +23,8 @@ export interface RegisterResponse {
 
 export interface SessionResponse {
   success: boolean
+}
+
+export interface GetProfileResponse {
+  user: User
 }

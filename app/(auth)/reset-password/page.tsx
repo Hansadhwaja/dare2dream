@@ -2,7 +2,7 @@
 
 import AuthCard from "@/components/Auth/AuthCard"
 import ResetPasswordForm from "@/components/Auth/ResetPassword/Form/ResetPasswordForm"
-import { resetPasswordUser } from "@/lib/api/auth"
+import { resetPasswordUser } from "@/lib/api/client/auth"
 import { ResetPasswordFormValues } from "@/schemas/Auth/forgot_password.schemas"
 import { useAuthStore } from "@/store/auth/authStore"
 import { LockKeyhole } from "lucide-react"
