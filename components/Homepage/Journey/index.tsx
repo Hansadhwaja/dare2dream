@@ -1,16 +1,16 @@
-import { journeyItems } from "@/constants"
-
 import JourneyCard from "./JourneyCard"
+import { MissionContentCards } from "@/types/cms.types"
 
-const JourneySection = () => {
+interface Props {
+  content: MissionContentCards[]
+}
+
+const JourneySection = ({ content }: Props) => {
   return (
-    <section
-      id="community"
-      className="max-container pb-16 lg:pb-24"
-    >
+    <section id="community" className="max-container pb-16 lg:pb-24">
       <div className="grid gap-4 lg:grid-cols-3">
-        {journeyItems.map((item) => (
-          <JourneyCard key={item.number} {...item} />
+        {content.map((item) => (
+          <JourneyCard key={item.number} item={item} />
         ))}
       </div>
     </section>

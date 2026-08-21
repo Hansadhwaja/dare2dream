@@ -6,7 +6,11 @@ import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react"
 
 import { useAuthStore } from "@/store/auth/authStore"
 
-const Footer = () => {
+interface Props {
+  content: string
+}
+
+const Footer = ({ content }: Props) => {
   const year = new Date().getFullYear()
   const token = useAuthStore((state) => state.token)
 
@@ -32,9 +36,7 @@ const Footer = () => {
             </Link>
 
             <p className="mt-5 max-w-lg text-base leading-7 font-normal text-primary-foreground/75 sm:mt-6 sm:text-lg sm:leading-8">
-              Dare to Dream empowers individuals in under-resourced communities
-              to create fulfilling work, take ownership, and build a better
-              future through entrepreneurship, mentorship, and community.
+              {content}
             </p>
 
             <Link
@@ -98,7 +100,7 @@ const Footer = () => {
               Connect
             </h3>
 
-            <div className="space-y-5 text-base font-normal leading-7 text-primary-foreground/75 sm:text-lg sm:leading-8">
+            <div className="space-y-5 text-base leading-7 font-normal text-primary-foreground/75 sm:text-lg sm:leading-8">
               <a
                 href="mailto:ivan@daretodreaminc.com"
                 className="flex items-start gap-3 transition-colors hover:text-primary-foreground"

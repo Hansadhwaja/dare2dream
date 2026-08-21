@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { ArrowRight, Calendar, Play } from "lucide-react"
 
 import { Video } from "@/types/video.types"
@@ -28,8 +29,8 @@ const FeaturedWebinar = ({ webinar }: Props) => {
         </div>
 
         <p className="max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-          Start with our featured session, handpicked to inspire your journey in
-          leadership, purpose, and personal growth.
+          Start with our featured session, handpicked to inspire your journey
+          in leadership, purpose, and personal growth.
         </p>
       </div>
 
@@ -38,15 +39,21 @@ const FeaturedWebinar = ({ webinar }: Props) => {
         <div className="grid lg:grid-cols-2">
           {/* Video Preview */}
           <div className="group relative aspect-square overflow-hidden lg:aspect-auto lg:min-h-[560px]">
-            <video
-              src={webinar.videoUrl}
-              muted
-              playsInline
-              preload="metadata"
-              className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+            {/* Thumbnail */}
+            <Image
+              src={webinar.thumbnail}
+              alt={webinar.title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.04]"
+              priority
             />
 
-            <div className="absolute inset-0 bg-black/25" />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/30" />
+
+            {/* Bottom gradient */}
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
 
             {/* Play Button */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -54,13 +61,27 @@ const FeaturedWebinar = ({ webinar }: Props) => {
                 video={webinar.videoUrl}
                 title={webinar.title}
                 trigger={
-                  <Button
-                    type="button"
-                    size="icon"
-                    className="size-20 rounded-full bg-white/90 text-primary shadow-xl transition duration-300 hover:scale-110 hover:bg-secondary hover:text-secondary-foreground sm:size-24"
-                  >
-                    <Play className="ml-1 size-8 fill-current sm:size-9" />
-                  </Button>
+                  <div className="group/play relative">
+                    {/* Outer ring */}
+                    <div className="absolute -inset-3 rounded-full border border-white/30 opacity-0 transition-all duration-500 group-hover/play:-inset-4 group-hover/play:opacity-100" />
+
+                    <Button
+                      type="button"
+                      size="icon"
+                      className="
+                        relative size-20 rounded-full
+                        bg-white/95 text-primary
+                        shadow-[0_12px_45px_rgba(0,0,0,0.3)]
+                        transition-all duration-500 ease-out
+                        hover:bg-secondary hover:text-secondary-foreground
+                        group-hover/play:scale-110
+                        group-active/play:scale-95
+                        sm:size-24
+                      "
+                    >
+                      <Play className="ml-1 size-8 fill-current transition-transform duration-300 group-hover/play:scale-105 sm:size-9" />
+                    </Button>
+                  </div>
                 }
               />
             </div>

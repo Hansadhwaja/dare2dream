@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import CmsCTa from "@/components/common/CMS/CmsCTa"
 import PolicyContent from "@/components/Policy/PolicyContent"
+import { getCms } from "@/lib/api/home"
+import { PrivacyPolicyContent } from "@/types/cms.types"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -8,7 +10,9 @@ export const metadata: Metadata = {
     "Read the Dare to Dream Privacy Policy and learn how we collect, use, and protect your information.",
 }
 
-const PrivacyPage = () => {
+const PrivacyPage = async () => {
+  const privacyRes = await getCms("privacy-policy")
+  const privacyContent: PrivacyPolicyContent = JSON.parse(privacyRes.content)
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="border-b border-border">
@@ -19,24 +23,16 @@ const PrivacyPage = () => {
             </p>
 
             <h1 className="mt-4 font-heading text-5xl leading-[0.95] font-semibold tracking-[-0.02em] sm:text-6xl lg:text-8xl">
-              Your privacy
-              <br />
-              <span className="text-secondary">matters to us.</span>
+              {privacyContent.header}
             </h1>
 
-            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 font-light text-muted-foreground sm:text-xl sm:leading-9">
-              We believe trust is the foundation of every meaningful
-              relationship. This policy explains how Dare to Dream collects,
-              uses, and protects your information.
-            </p>
-
-            <p className="mt-6 font-sans text-sm font-medium text-muted-foreground/75 sm:text-base">
-              Last updated: August 2026
+            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 font-normal text-muted-foreground sm:text-xl sm:leading-9">
+            {privacyContent.subheader}
             </p>
           </div>
         </div>
       </section>
-      <PolicyContent />
+      <PolicyContent content={privacyContent.sections} />
       <CmsCTa />
     </main>
   )

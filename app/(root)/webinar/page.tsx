@@ -14,6 +14,7 @@ const WebinarPage = async () => {
   const videosRes = await getVideos({
     pageFilter: "webinar",
   })
+  console.log(videosRes)
 
   const webinarVideos = videosRes?.videos ?? []
 

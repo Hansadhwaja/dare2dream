@@ -1,4 +1,5 @@
 import { ArrowRight, Calendar, Play } from "lucide-react"
+import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -13,17 +14,18 @@ interface Props {
 const WebinarCard = ({ webinar }: Props) => {
   return (
     <Card className="group overflow-hidden rounded-[1.75rem] border-border bg-card py-0 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
-      {/* Video */}
-      <div className="relative aspect-video overflow-hidden bg-black">
-        <video
-          src={webinar.videoUrl}
-          muted
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+      {/* Video Thumbnail */}
+      <div className="relative aspect-video overflow-hidden bg-primary">
+        <Image
+          src={webinar.thumbnail}
+          alt={webinar.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
 
-        <div className="absolute inset-0 bg-black/20" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/15 transition-colors duration-300 group-hover:bg-black/25" />
 
         {/* Play */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -31,13 +33,18 @@ const WebinarCard = ({ webinar }: Props) => {
             video={webinar.videoUrl}
             title={webinar.title}
             trigger={
-              <Button
-                type="button"
-                size="icon"
-                className="size-16 rounded-full bg-white/95 text-primary shadow-lg hover:bg-secondary hover:text-secondary-foreground sm:size-[72px]"
-              >
-                <Play className="ml-1 size-7 fill-current sm:size-8" />
-              </Button>
+              <div className="group/play relative">
+                {/* Outer ring */}
+                <div className="absolute -inset-2 rounded-full border border-white/30 opacity-0 transition-all duration-500 group-hover/play:-inset-3 group-hover/play:opacity-100" />
+
+                <Button
+                  type="button"
+                  size="icon"
+                  className="relative size-16 rounded-full bg-white/95 text-primary shadow-[0_10px_35px_rgba(0,0,0,0.22)] transition-all duration-500 group-hover/play:scale-110 group-active/play:scale-95 hover:bg-secondary hover:text-secondary-foreground sm:size-[72px]"
+                >
+                  <Play className="ml-1 size-7 fill-current transition-transform duration-300 sm:size-8" />
+                </Button>
+              </div>
             }
           />
         </div>
@@ -74,7 +81,7 @@ const WebinarCard = ({ webinar }: Props) => {
               className="h-auto gap-2 rounded-none p-0 text-base font-semibold text-secondary hover:bg-transparent hover:text-secondary sm:text-lg"
             >
               Watch Now
-              <ArrowRight className="size-5" />
+              <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           }
         />

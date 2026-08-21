@@ -1,6 +1,6 @@
 import React from "react"
 
-const TermsSection = ({
+const ContentSection = ({
   number,
   title,
   children,
@@ -10,11 +10,13 @@ const TermsSection = ({
   children: React.ReactNode
 }) => {
   return (
-    <article className="grid gap-5 border-b border-border pb-12 md:grid-cols-[100px_1fr]">
-      <span className="font-sans text-sm font-semibold tracking-[0.12em] text-secondary">
+    <article className="grid gap-6 border-b border-border pb-12 md:grid-cols-[140px_1fr] md:gap-8">
+      {/* Number */}
+      <span className="font-heading text-6xl leading-none font-semibold tracking-[-0.04em] text-secondary sm:text-7xl md:text-8xl">
         {number}
       </span>
 
+      {/* Content */}
       <div>
         <h2 className="font-heading text-3xl font-semibold tracking-[-0.01em] sm:text-4xl">
           {title}
@@ -28,4 +30,4 @@ const TermsSection = ({
   )
 }
 
-export default TermsSection
+export default ContentSection

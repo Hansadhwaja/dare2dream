@@ -9,6 +9,7 @@ export type Video = {
   createdAt: Date
   __v: number
   videoUrl: string
+  thumbnail: string
 }
 
 export interface VideosResponse {
