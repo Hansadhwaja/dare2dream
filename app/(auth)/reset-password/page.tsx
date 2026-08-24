@@ -60,7 +60,7 @@ const ResetPasswordPage = () => {
           </div>
 
           {/* Eyebrow */}
-          <p className="mt-7 font-sans text-xs font-semibold tracking-[0.12em] text-secondary uppercase">
+          <p className="badge-heading mt-7">
             Account recovery
           </p>
 
@@ -70,7 +70,7 @@ const ResetPasswordPage = () => {
           </h2>
 
           {/* Description */}
-          <p className="mx-auto mt-5 max-w-md font-sans text-base leading-7 font-light text-muted-foreground sm:text-lg">
+          <p className="mx-auto mt-5 max-w-md font-sans text-base leading-7 font-normal text-foreground sm:text-lg">
             Enter the OTP and your new password to securely reset your account
             password.
           </p>

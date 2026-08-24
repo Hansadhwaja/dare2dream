@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react"
+import { ArrowUpRight, MapPin, Phone } from "lucide-react"
 
 import { useAuthStore } from "@/store/auth/authStore"
 
@@ -101,14 +101,6 @@ const Footer = ({ content }: Props) => {
             </h3>
 
             <div className="space-y-5 text-base leading-7 font-normal text-primary-foreground/75 sm:text-lg sm:leading-8">
-              <a
-                href="mailto:ivan@daretodreaminc.com"
-                className="flex items-start gap-3 transition-colors hover:text-primary-foreground"
-              >
-                <Mail className="mt-1 size-5 shrink-0" />
-                <span className="break-all">ivan@daretodreaminc.com</span>
-              </a>
-
               <a
                 href="tel:+14803312624"
                 className="flex items-center gap-3 transition-colors hover:text-primary-foreground"

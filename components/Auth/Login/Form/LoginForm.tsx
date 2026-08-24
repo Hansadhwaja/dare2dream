@@ -6,8 +6,6 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
 
 import AuthField from "../../AuthField"
 import FormField from "@/components/common/Form/FormField"
@@ -26,7 +24,6 @@ const LoginForm = ({ onSubmit, isLoading }: Props) => {
     defaultValues: {
       email: "",
       password: "",
-      rememberMe: true,
     },
   })
 
@@ -79,28 +76,11 @@ const LoginForm = ({ onSubmit, isLoading }: Props) => {
       />
 
       {/* Remember / Forgot */}
-      <div className="grid grid-cols-2 gap-4 pt-1">
-        <FormField
-          control={form.control}
-          name="rememberMe"
-          render={(field) => (
-            <Label className="flex cursor-pointer items-center gap-3">
-              <Checkbox
-                checked={Boolean(field.value)}
-                onCheckedChange={field.onChange}
-                onBlur={field.onBlur}
-              />
-
-              <span className="font-sans text-sm text-muted-foreground">
-                Remember me
-              </span>
-            </Label>
-          )}
-        />
+      <div className="flex justify-end items-center gap-4 pt-1">
 
         <Link
           href="/forgot-password"
-          className="flex justify-end font-sans text-sm font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
+          className="flex justify-end font-sans text-sm font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-tertiary"
         >
           Forgot password?
         </Link>

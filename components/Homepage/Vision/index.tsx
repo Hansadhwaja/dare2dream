@@ -8,7 +8,7 @@ const VisionSection = ({ content }: Props) => {
     <section id="about" className="max-container py-16 lg:py-24">
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
         <div>
-          <p className="font-sans text-xs font-semibold tracking-[0.12em] text-secondary uppercase lg:text-base">
+          <p className="badge-heading">
             {content.badge}
           </p>
 

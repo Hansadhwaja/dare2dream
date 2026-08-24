@@ -23,7 +23,7 @@ const WelcomeVideoSection = async ({ content }: Props) => {
       <div className="max-container grid gap-10 sm:gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-14">
         {/* Content */}
         <div>
-          <p className="font-sans text-xs font-semibold tracking-[0.12em] text-secondary uppercase sm:text-sm">
+          <p className="badge-heading">
             {content.badge}
           </p>
 

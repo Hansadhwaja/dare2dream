@@ -40,6 +40,9 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
 
+  --color-tertiary-foreground: var(--tertiary-foreground);
+  --color-tertiary: var(--tertiary);
+
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
 
@@ -79,6 +82,9 @@
   /* Brand yellow */
   --secondary: oklch(0.82 0.16 82);
   --secondary-foreground: oklch(0.285 0.055 155);
+
+  --tertiary: oklch(62% 0.17 39);
+  --tertiary-foreground: oklch(0.985 0 0);
 
   /* Soft natural green */
   --muted: oklch(0.93 0.025 125);
@@ -190,5 +196,8 @@
 @layer utilities {
   .max-container {
     @apply mx-auto max-w-350 px-3 sm:px-5 lg:px-8;
+  }
+  .badge-heading {
+    @apply font-sans text-sm font-bold tracking-[0.12em] text-tertiary uppercase;
   }
 }

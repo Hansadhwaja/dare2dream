@@ -51,7 +51,7 @@ const RegisterPage = () => {
 
       <AuthCard>
         <div className="mb-8">
-          <p className="font-sans text-xs font-semibold tracking-[0.12em] text-secondary uppercase">
+           <p className="badge-heading">
             Create your account
           </p>
 
@@ -59,7 +59,7 @@ const RegisterPage = () => {
             Start your journey.
           </h2>
 
-          <p className="mt-5 font-sans text-base leading-7 font-light text-muted-foreground sm:text-lg">
+          <p className="mt-5 font-sans text-base leading-7 font-normal text-foreground sm:text-lg">
             A few details and you are ready to begin.
           </p>
         </div>
@@ -70,7 +70,7 @@ const RegisterPage = () => {
           Already a member?{" "}
           <Link
             href="/login"
-            className="font-semibold text-foreground transition-opacity hover:opacity-60"
+            className="font-semibold text-foreground transition-colors hover:text-tertiary"
           >
             Sign in
           </Link>

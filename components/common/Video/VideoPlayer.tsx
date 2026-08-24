@@ -21,10 +21,10 @@ const VideoPlayer = ({ video, title = "Video", trigger }: VideoPlayerProps) => {
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
-      <DialogContent className="!fixed !inset-0 !top-0 !left-0 flex !h-screen !w-screen !max-w-none !translate-x-0 !translate-y-0 flex-col gap-0 overflow-hidden !rounded-none !border-0 bg-black !p-0">
+      <DialogContent className="flex flex-col gap-0 overflow-hidden rounded-xl border-0 bg-black p-0">
         {/* Header */}
-        <DialogHeader className="shrink-0 bg-primary px-5 py-4 sm:px-8">
-          <DialogTitle className="font-heading text-lg font-semibold text-white sm:text-2xl">
+        <DialogHeader className="shrink-0 bg-primary px-4 py-3 sm:px-6 sm:py-4">
+          <DialogTitle className="font-heading text-base font-semibold text-white sm:text-xl lg:text-2xl">
             {title}
           </DialogTitle>
         </DialogHeader>
@@ -38,6 +38,7 @@ const VideoPlayer = ({ video, title = "Video", trigger }: VideoPlayerProps) => {
             autoPlay
             playsInline
             preload="metadata"
+            onContextMenu={(e) => e.preventDefault()}
             className="h-full w-full object-contain"
           >
             Your browser does not support the video player.

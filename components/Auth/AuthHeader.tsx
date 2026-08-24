@@ -5,7 +5,7 @@ import BrandLogo from "../common/BrandLogo"
 
 const AuthHeader = () => {
   return (
-    <header className="max-container flex h-20 sm:h-24 lg:h-28 items-center justify-between">
+    <header className="max-container flex h-20 sm:h-24 lg:h-28 items-center justify-between border-b">
       <BrandLogo />
 
       <Link

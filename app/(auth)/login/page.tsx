@@ -55,7 +55,7 @@ const LoginPage = () => {
 
       <AuthCard>
         <div className="mb-8">
-          <p className="font-sans text-xs font-semibold tracking-[0.12em] text-secondary uppercase">
+          <p className="badge-heading">
             Member login
           </p>
 
@@ -63,7 +63,7 @@ const LoginPage = () => {
             Welcome back.
           </h2>
 
-          <p className="mt-5 font-sans text-base leading-7 font-light text-muted-foreground sm:text-lg">
+          <p className="mt-5 font-sans text-base leading-7 font-normal text-foreground sm:text-lg">
             Enter your details below to access your account.
           </p>
         </div>
@@ -74,7 +74,7 @@ const LoginPage = () => {
           New to Dare to Dream?{" "}
           <Link
             href="/register"
-            className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
+            className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-tertiary"
           >
             Create an account
           </Link>

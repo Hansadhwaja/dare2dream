@@ -17,7 +17,7 @@ const FeaturedWebinar = ({ webinar }: Props) => {
       {/* Heading */}
       <div className="mb-8 flex flex-col gap-5 sm:mb-12 sm:gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="font-sans text-sm font-bold tracking-widest text-secondary uppercase sm:text-base">
+          <p className="badge-heading">
             Featured Webinar
           </p>
 

@@ -188,14 +188,14 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
               I agree to the{" "}
               <Link
                 href="/terms"
-                className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
+                className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-tertiary"
               >
                 Terms of Service
               </Link>{" "}
               and{" "}
               <Link
                 href="/privacy"
-                className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-secondary"
+                className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-tertiary"
               >
                 Privacy Policy
               </Link>{" "}

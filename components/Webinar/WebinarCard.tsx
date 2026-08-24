@@ -78,7 +78,7 @@ const WebinarCard = ({ webinar }: Props) => {
             <Button
               type="button"
               variant="ghost"
-              className="h-auto gap-2 rounded-none p-0 text-base font-semibold text-secondary hover:bg-transparent hover:text-secondary sm:text-lg"
+              className="h-auto gap-2 rounded-none p-0 text-base font-semibold text-tertiary hover:bg-transparent hover:text-tertiary sm:text-lg"
             >
               Watch Now
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />

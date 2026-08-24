@@ -21,7 +21,7 @@ const NextHomeSection = ({ content }: Props) => {
             {mainCard.title}
           </h2>
 
-          <p className="mt-6 max-w-2xl font-sans text-base leading-7 font-normal text-muted-foreground sm:mt-7 sm:text-lg sm:leading-8">
+          <p className="mt-6 max-w-2xl font-sans text-base leading-7 font-medium text-foreground sm:mt-7 sm:text-lg sm:leading-8">
             {mainCard.text}
           </p>
         </div>

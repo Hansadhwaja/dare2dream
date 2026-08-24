@@ -13,7 +13,7 @@ const ContactFormSection = () => {
         {/* Form */}
         <div className="w-full rounded-3xl border bg-card p-5 shadow-sm sm:rounded-[2rem] sm:p-7 md:p-8 lg:p-10">
           <div className="mb-6 sm:mb-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary sm:text-sm sm:tracking-[0.2em]">
+            <p className="badge-heading">
               Contact Us
             </p>
 

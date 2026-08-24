@@ -92,7 +92,7 @@ const UpdateCard = ({ update }: UpdateCardProps) => {
             <Button
               type="button"
               variant="ghost"
-              className="group/cta mt-7 h-auto w-fit gap-2 rounded-none p-0 text-base font-bold text-secondary hover:bg-transparent hover:text-secondary/80 sm:text-lg"
+              className="group/cta mt-7 h-auto w-fit gap-2 rounded-none p-0 text-base font-semibold text-tertiary hover:bg-transparent hover:text-tertiary/80 sm:text-lg"
             >
               Watch Now
               <ArrowRight className="size-5 transition-transform duration-300 group-hover/cta:translate-x-1" />

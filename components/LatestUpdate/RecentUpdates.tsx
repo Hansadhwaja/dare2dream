@@ -11,7 +11,7 @@ const RecentUpdates = ({ updates }: Props) => {
       {/* Heading */}
       <div className="mb-10 flex flex-col gap-6 sm:mb-12 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="text-sm font-bold tracking-[0.1em] text-secondary uppercase sm:text-base">
+          <p className="badge-heading">
             Latest Updates
           </p>
 
