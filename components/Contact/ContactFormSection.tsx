@@ -1,9 +1,32 @@
 "use client"
 
+import { useState } from "react"
 import ContactInfo from "./ContactInfo"
 import ContactForm from "./Form/ContactForm"
+import { ContactFormValues } from "@/schemas/Contact/contact.schemas"
+import { sendMessage } from "@/lib/api/client/contact"
+import { toast } from "sonner"
 
 const ContactFormSection = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const handleSubmit = async (values: ContactFormValues) => {
+    try {
+      setIsLoading(true)
+
+      const response = await sendMessage(values)
+
+      toast.success("Message Sent successfully")
+    } catch (error) {
+      console.error("MEssage Sent Failed", error)
+
+      toast.error(
+        error instanceof Error ? error.message : "Error while sending message"
+      )
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <section
       id="contact-form"
@@ -13,11 +36,9 @@ const ContactFormSection = () => {
         {/* Form */}
         <div className="w-full rounded-3xl border bg-card p-5 shadow-sm sm:rounded-[2rem] sm:p-7 md:p-8 lg:p-10">
           <div className="mb-6 sm:mb-8">
-            <p className="badge-heading">
-              Contact Us
-            </p>
+            <p className="badge-heading">Contact Us</p>
 
-            <h2 className="mt-2 font-heading text-2xl font-semibold leading-tight sm:mt-3 sm:text-3xl md:text-4xl">
+            <h2 className="mt-2 font-heading text-2xl leading-tight font-semibold sm:mt-3 sm:text-3xl md:text-4xl">
               Send us a message
             </h2>
 
@@ -27,7 +48,7 @@ const ContactFormSection = () => {
             </p>
           </div>
 
-          <ContactForm />
+          <ContactForm onSubmit={handleSubmit} isLoading={isLoading} />
         </div>
 
         {/* Contact Info */}

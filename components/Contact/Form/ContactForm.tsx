@@ -14,28 +14,35 @@ import {
   contactSchema,
 } from "@/schemas/Contact/contact.schemas"
 import FormField from "@/components/common/Form/FormField"
+import Loader from "@/components/common/Loader/Loader"
+interface Props {
+  onSubmit: (v: ContactFormValues) => void
+  isLoading: boolean
+}
 
-const ContactForm = () => {
+const ContactForm = ({ onSubmit, isLoading }: Props) => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
+    mode: "onChange",
     defaultValues: {
-      fullName: "",
+      name: "",
       email: "",
       subject: "",
       message: "",
     },
   })
 
-  const onSubmit = (values: ContactFormValues) => {
-    console.log(values)
+  const onFormSubmit = (values: ContactFormValues) => {
+    onSubmit(values)
+    form.reset()
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={form.handleSubmit(onFormSubmit)} className="space-y-6">
       <div className="grid gap-6 md:grid-cols-2">
         <FormField
           control={form.control}
-          name="fullName"
+          name="name"
           render={(field) => (
             <>
               <FieldLabel>Full Name</FieldLabel>
@@ -94,9 +101,20 @@ const ContactForm = () => {
         )}
       />
 
-      <Button type="submit" size="lg" className="rounded-full">
-        <Send className="mr-2 size-4" />
-        Send Message
+      <Button
+        type="submit"
+        size="lg"
+        className="rounded-full"
+        disabled={isLoading}
+      >
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <Send className="mr-2 size-4" />
+            Send Message
+          </>
+        )}
       </Button>
     </form>
   )
