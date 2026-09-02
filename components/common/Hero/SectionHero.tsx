@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, Play } from "lucide-react"
+import { buttonStyles } from "@/constants"
 
 interface HeroAction {
   label: string
@@ -18,16 +19,10 @@ interface SectionHeroProps {
 }
 
 const iconMap = {
-  arrow: <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />,
+  arrow: (
+    <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+  ),
   play: <Play className="size-4 fill-current" />,
-}
-
-const buttonStyles = {
-  primary:
-    "group inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 font-sans text-sm font-semibold text-secondary-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:brightness-95 hover:shadow-md sm:w-auto sm:px-7 sm:py-4",
-
-  secondary:
-    "group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 font-sans text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/15 hover:shadow-md sm:w-auto sm:px-7 sm:py-4",
 }
 
 const SectionHero = ({
@@ -50,22 +45,7 @@ const SectionHero = ({
         <div className="absolute -bottom-20 -left-20 size-56 rounded-full border-[32px] border-white/5 sm:-bottom-28 sm:-left-16 sm:size-80 sm:border-[48px]" />
 
         {/* Content */}
-        <div
-          className="
-            relative
-            grid
-            gap-10
-            px-5
-            py-10
-            sm:gap-14
-            sm:px-10
-            sm:py-12
-            lg:grid-cols-[1fr_.8fr]
-            lg:items-end
-            lg:px-16
-            lg:py-14
-          "
-        >
+        <div className="relative grid gap-10 px-5 py-10 sm:gap-14 sm:px-10 sm:py-12 lg:grid-cols-[1fr_.8fr] lg:items-end lg:px-16 lg:py-14">
           {/* Text */}
           <div className="max-w-2xl lg:pb-6">
             {/* Badge */}
@@ -77,38 +57,12 @@ const SectionHero = ({
             )}
 
             {/* Heading */}
-            <h1
-              className="
-                max-w-2xl
-                font-heading
-                text-[2.75rem]
-                leading-[0.96]
-                font-semibold
-                tracking-[-0.025em]
-                text-balance
-                text-white
-                sm:text-6xl
-                sm:leading-[0.94]
-                lg:text-[84px]
-              "
-            >
+            <h1 className="max-w-2xl font-heading text-[2.75rem] leading-[0.96] font-semibold tracking-[-0.025em] text-balance text-white sm:text-6xl sm:leading-[0.94] lg:text-[84px]">
               {title}
             </h1>
 
             {/* Description */}
-            <p
-              className="
-                mt-5
-                max-w-xl
-                font-sans
-                text-base
-                leading-7
-                text-white/75
-                sm:mt-7
-                sm:text-xl
-                sm:leading-8
-              "
-            >
+            <p className="mt-5 max-w-xl font-sans text-base leading-7 text-white/75 sm:mt-7 sm:text-xl sm:leading-8">
               {description}
             </p>
 
@@ -118,9 +72,7 @@ const SectionHero = ({
                 {primaryAction && (
                   <Link
                     href={primaryAction.href}
-                    className={
-                      buttonStyles[primaryAction.variant ?? "primary"]
-                    }
+                    className={buttonStyles[primaryAction.variant ?? "primary"]}
                   >
                     {primaryAction.label}
 
@@ -135,8 +87,7 @@ const SectionHero = ({
                       buttonStyles[secondaryAction.variant ?? "secondary"]
                     }
                   >
-                    {secondaryAction.icon &&
-                      iconMap[secondaryAction.icon]}
+                    {secondaryAction.icon && iconMap[secondaryAction.icon]}
 
                     {secondaryAction.label}
                   </Link>
@@ -146,11 +97,7 @@ const SectionHero = ({
           </div>
 
           {/* Child / Preview */}
-          {children && (
-            <div className="w-full min-w-0">
-              {children}
-            </div>
-          )}
+          {children && <div className="w-full min-w-0">{children}</div>}
         </div>
       </div>
     </section>

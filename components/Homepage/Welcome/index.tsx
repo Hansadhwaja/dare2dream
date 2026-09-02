@@ -6,6 +6,8 @@ import Link from "next/link"
 import VideoPlayer from "@/components/common/Video/VideoPlayer"
 import { Button } from "@/components/ui/button"
 import { WebinarContent } from "@/types/cms.types"
+import { cn } from "@/lib/utils"
+import { buttonStyles } from "@/constants"
 
 interface Props {
   content: WebinarContent
@@ -22,25 +24,19 @@ const WelcomeVideoSection = async ({ content }: Props) => {
     <section id="welcome" className="bg-card py-14 sm:py-16 lg:py-24">
       <div className="max-container grid gap-10 sm:gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-14">
         {/* Content */}
-        <div>
-          <p className="badge-heading">
-            {content.badge}
-          </p>
+        <div className="space-y-6">
+          <p className="badge-heading">{content.badge}</p>
 
-          <h2 className="mt-4 max-w-xl font-heading text-4xl leading-[1] font-semibold tracking-[-0.015em] sm:text-5xl sm:leading-[0.95] lg:text-6xl">
+          <h2 className="max-w-xl font-heading text-4xl leading-none font-semibold tracking-[-0.015em] sm:text-5xl sm:leading-[0.95] lg:text-6xl">
             {content.heading}
           </h2>
 
-          <p className="mt-5 max-w-md font-sans text-base leading-7 font-normal text-muted-foreground sm:text-lg sm:leading-8">
+          <p className="max-w-md font-sans text-base leading-7 font-normal text-muted-foreground sm:text-lg sm:leading-8">
             {content.subheading}
           </p>
-
-          <Link
-            href="/webinar"
-            className="mt-7 inline-flex items-center gap-2 font-sans text-base font-semibold text-foreground transition-all duration-300 hover:gap-3 hover:opacity-70"
-          >
+          <Link href="/webinar" className={cn(buttonStyles.primary)}>
             {content.ctaText}
-            <ArrowRight className="size-4 sm:size-5" />
+            <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 sm:size-5" />
           </Link>
         </div>
 

@@ -42,9 +42,9 @@ const PasswordInput = ({ label, icon: Icon, id, ...props }: Props) => {
           aria-label={showPassword ? "Hide password" : "Show password"}
         >
           {showPassword ? (
-            <EyeOff className="size-4" />
-          ) : (
             <Eye className="size-4" />
+          ) : (
+            <EyeOff className="size-4" />
           )}
         </Button>
       </div>
