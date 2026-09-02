@@ -28,7 +28,7 @@ import Link from "next/link"
 const countries = Country.getAllCountries()
 
 // Countries that should appear at the top
-const priorityCountryCodes = ["US", "GB", "IN", "ZA"]
+const priorityCountryCodes = ["US", "GB", "IN", "ZA","ET","DK"]
 
 const priorityCountries = priorityCountryCodes
   .map((code) => countries.find((country) => country.isoCode === code))
@@ -146,7 +146,7 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
             placeholder="Select your country"
             value={field.value}
             onValueChange={field.onChange}
-            options={sortedCountries.map((country, index) => ({
+            options={sortedCountries.map((country) => ({
               label: priorityCountryCodes.includes(country!.isoCode)
                 ? `${country!.name}`
                 : country!.name,

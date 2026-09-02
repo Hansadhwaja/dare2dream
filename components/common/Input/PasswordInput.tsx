@@ -30,7 +30,7 @@ const PasswordInput = ({ label, icon: Icon, id, ...props }: Props) => {
           id={id}
           {...props}
           type={showPassword ? "text" : "password"}
-          className="h-13 rounded-2xl border-input bg-background pr-12 pl-11 font-sans text-sm text-foreground shadow-none placeholder:text-muted-foreground/50 focus-visible:border-ring focus-visible:ring-4 focus-visible:ring-ring/15"
+          className="h-13 rounded-2xl border-input bg-background pr-12 pl-11 font-sans text-sm text-foreground shadow-none focus-visible:border-ring focus-visible:ring-4 focus-visible:ring-ring/15"
         />
 
         <Button
