@@ -4,6 +4,7 @@ import "./globals.css"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/sonner"
 import type { Metadata } from "next"
+import DisableContextMenu from "@/components/common/DisableContextMenu"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -99,6 +100,7 @@ export default function RootLayout({
       )}
     >
       <body>
+        <DisableContextMenu />
         {children}
         <Toaster richColors />
       </body>
