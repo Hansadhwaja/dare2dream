@@ -21,7 +21,7 @@ const VideoPlayer = ({ video, title = "Video", trigger }: VideoPlayerProps) => {
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
-      <DialogContent className="flex flex-col gap-0 overflow-hidden rounded-xl border-0 bg-black p-0">
+      <DialogContent className="flex h-[90vh] w-[80vw] max-w-none flex-col gap-0 overflow-hidden rounded-xl border-0 bg-black p-0">
         {/* Header */}
         <DialogHeader className="shrink-0 bg-primary px-4 py-3 sm:px-6 sm:py-4">
           <DialogTitle className="font-heading text-base font-semibold text-white sm:text-xl lg:text-2xl">

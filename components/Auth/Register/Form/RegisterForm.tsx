@@ -24,17 +24,19 @@ import {
 import IconSelect from "@/components/common/Input/IconSelect"
 import Loader from "@/components/common/Loader/Loader"
 import Link from "next/link"
+import { excludedCountryCodes, priorityCountryCodes } from "@/constants"
 
 const countries = Country.getAllCountries()
 
-// Countries that should appear at the top
-const priorityCountryCodes = ["US", "GB", "IN", "ZA","ET","DK"]
+const availableCountries = countries.filter(
+  (country) => !excludedCountryCodes.has(country.isoCode)
+)
 
 const priorityCountries = priorityCountryCodes
-  .map((code) => countries.find((country) => country.isoCode === code))
+  .map((code) => availableCountries.find((country) => country.isoCode === code))
   .filter(Boolean)
 
-const otherCountries = countries.filter(
+const otherCountries = availableCountries.filter(
   (country) => !priorityCountryCodes.includes(country.isoCode)
 )
 

@@ -15,21 +15,9 @@ const ContactInfo = () => {
 
         <div className="mt-8 space-y-6">
           <InfoItem
-            icon={<Mail className="size-5" />}
-            title="Email"
-            value="ivan@daretodreaminc.com"
-          />
-
-          <InfoItem
-            icon={<Phone className="size-5" />}
-            title="Phone"
-            value="+14803312624"
-          />
-
-          <InfoItem
             icon={<MapPin className="size-5" />}
             title="Office"
-            value="Los Angeles, California"
+            value="Arizona, USA"
           />
 
           <InfoItem
