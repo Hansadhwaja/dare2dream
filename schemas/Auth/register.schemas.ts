@@ -11,7 +11,7 @@ export const registerSchema = z.object({
 
   country: z.string().min(2, "Country is required."),
 
-  whoInvited: z.string().min(2, "Who invited you is required."),
+  whoInvited: z.email("Please enter a valid email address."),
 
   agreedPrivacyPolicy: z.boolean().refine((value) => value, {
     message: "You must accept the terms and privacy policy.",

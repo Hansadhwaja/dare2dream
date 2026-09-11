@@ -101,14 +101,6 @@ const Footer = ({ content }: Props) => {
             </h3>
 
             <div className="space-y-5 text-base leading-7 font-normal text-primary-foreground/75 sm:text-lg sm:leading-8">
-              <a
-                href="tel:+14803312624"
-                className="flex items-center gap-3 transition-colors hover:text-primary-foreground"
-              >
-                <Phone className="size-5 shrink-0" />
-                <span>+1 480 331 2624</span>
-              </a>
-
               <div className="flex items-start gap-3">
                 <MapPin className="mt-1 size-5 shrink-0" />
 

@@ -1,9 +1,12 @@
+"use client"
+
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { MissionContentCards } from "@/types/cms.types"
+import { useAuthStore } from "@/store/auth/authStore"
 
 interface JourneyCardProps {
   item: MissionContentCards
@@ -11,6 +14,7 @@ interface JourneyCardProps {
 
 const JourneyCard = ({ item }: JourneyCardProps) => {
   const isDark = item.number === "03"
+  const token = useAuthStore((state) => state.token)
 
   return (
     <Card
@@ -56,12 +60,12 @@ const JourneyCard = ({ item }: JourneyCardProps) => {
         </p>
 
         {/* CTA */}
-        {item.number === "03" && (
+        {item.number === "03" && !token && (
           <Link
-            href="#join"
+            href="/register"
             className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-semibold text-secondary transition-all hover:gap-3 sm:text-base"
           >
-            Explore our community
+            Join our community
             <ArrowRight className="size-4 sm:size-5" />
           </Link>
         )}

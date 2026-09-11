@@ -1,5 +1,4 @@
-import Link from "next/link"
-import { ArrowRight, MessageCircle, Users } from "lucide-react"
+import { MessageCircle, Users } from "lucide-react"
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
@@ -7,12 +6,12 @@ const ContactPreview = () => {
   return (
     <Card className="relative mx-auto w-full max-w-xl overflow-hidden border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl">
       {/* Decorative Background */}
-      <div className="absolute -right-10 -top-10 size-28 rounded-full bg-secondary/15 blur-3xl sm:-right-12 sm:-top-12 sm:size-40" />
+      <div className="absolute -top-10 -right-10 size-28 rounded-full bg-secondary/15 blur-3xl sm:-top-12 sm:-right-12 sm:size-40" />
       <div className="absolute -bottom-12 -left-12 size-32 rounded-full bg-white/5 blur-3xl sm:-bottom-16 sm:-left-16 sm:size-48" />
 
       {/* Header */}
       <CardHeader className="relative p-5 sm:p-7 md:p-8 lg:p-10">
-        <h3 className="font-heading text-xl font-semibold leading-tight text-white sm:text-2xl md:text-3xl">
+        <h3 className="font-heading text-xl leading-tight font-semibold text-white sm:text-2xl md:text-3xl">
           Let&apos;s start a conversation.
         </h3>
 
@@ -60,15 +59,6 @@ const ContactPreview = () => {
             </div>
           </div>
         </div>
-
-        {/* CTA */}
-        <Link
-          href="#contact-form"
-          className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-secondary px-5 py-3 text-sm font-bold text-secondary-foreground transition-all hover:brightness-95 sm:min-h-12 sm:px-6 sm:text-base md:min-h-13 md:text-lg"
-        >
-          Send a Message
-          <ArrowRight className="size-4 sm:size-5" />
-        </Link>
       </CardContent>
     </Card>
   )

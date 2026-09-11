@@ -165,8 +165,9 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
         render={(field) => (
           <AuthField
             {...field}
+            type="email"
             label="Who invited you?"
-            placeholder="Enter the name of the person who invited you"
+            placeholder="Enter the email of the person who invited you"
             autoComplete="off"
             icon={UserPlus}
           />

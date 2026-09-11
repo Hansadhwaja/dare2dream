@@ -13,7 +13,7 @@ const ContactFormSection = () => {
     try {
       setIsLoading(true)
 
-      const response = await sendMessage(values)
+      await sendMessage(values)
 
       toast.success("Message Sent successfully")
     } catch (error) {

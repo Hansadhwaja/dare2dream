@@ -38,7 +38,7 @@ const NextHomeSection = ({ content }: Props) => {
           </div>
 
           <Link
-            href="/contact"
+            href="/contact#contact-form"
             className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-sans text-base font-semibold text-primary-foreground transition hover:brightness-95 sm:mt-10"
           >
             {supportCard.ctaText}
