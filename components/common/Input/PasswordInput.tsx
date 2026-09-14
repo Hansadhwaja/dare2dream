@@ -2,9 +2,12 @@
 
 import { Eye, EyeOff, type LucideIcon } from "lucide-react"
 import { useState } from "react"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from "@/components/ui/input-group"
 
 interface Props extends React.ComponentProps<"input"> {
   label: string
@@ -23,31 +26,33 @@ const PasswordInput = ({ label, icon: Icon, id, ...props }: Props) => {
         {label}
       </label>
 
-      <div className="relative">
-        <Icon className="pointer-events-none absolute top-1/2 left-4 z-10 size-4 -translate-y-1/2 text-muted-foreground/60" />
+      <InputGroup className="h-13 rounded-2xl bg-background focus-within:ring-4 focus-within:ring-ring/15 border-input">
+        <InputGroupAddon>
+          <Icon className="size-4 text-muted-foreground/60" />
+        </InputGroupAddon>
 
-        <Input
+        <InputGroupInput
           id={id}
           {...props}
           type={showPassword ? "text" : "password"}
-          className="h-13 rounded-2xl border-input bg-background pr-12 pl-11 font-sans text-sm text-foreground shadow-none focus-visible:border-ring focus-visible:ring-4 focus-visible:ring-ring/15"
+          className="font-sans text-sm text-foreground"
         />
 
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon-xs"
-          onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute top-1/2 right-2 text-muted-foreground hover:bg-transparent hover:text-foreground"
-          aria-label={showPassword ? "Hide password" : "Show password"}
-        >
-          {showPassword ? (
-            <Eye className="size-4" />
-          ) : (
-            <EyeOff className="size-4" />
-          )}
-        </Button>
-      </div>
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton
+            type="button"
+            size="icon-xs"
+            onClick={() => setShowPassword((prev) => !prev)}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? (
+              <Eye className="size-4" />
+            ) : (
+              <EyeOff className="size-4" />
+            )}
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
     </div>
   )
 }

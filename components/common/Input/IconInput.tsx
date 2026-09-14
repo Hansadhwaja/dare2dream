@@ -1,6 +1,10 @@
 import type { LucideIcon } from "lucide-react"
 
-import { Input } from "@/components/ui/input"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group"
 
 interface Props extends React.ComponentProps<"input"> {
   label: string
@@ -17,15 +21,17 @@ const IconInput = ({ label, icon: Icon, id, ...props }: Props) => {
         {label}
       </label>
 
-      <div className="relative">
-        <Icon className="pointer-events-none absolute top-1/2 left-4 z-10 size-4 -translate-y-1/2 text-muted-foreground/60" />
+      <InputGroup className="h-13 rounded-2xl border-input bg-background focus-within:ring-4 focus-within:ring-ring/15">
+        <InputGroupAddon>
+          <Icon className="size-4 text-muted-foreground/60" />
+        </InputGroupAddon>
 
-        <Input
+        <InputGroupInput
           id={id}
           {...props}
-          className="h-13 rounded-2xl border-input bg-background pr-4 pl-11 font-sans text-sm text-foreground shadow-none focus-visible:border-ring focus-visible:ring-4 focus-visible:ring-ring/15"
+          className="font-sans text-sm text-foreground"
         />
-      </div>
+      </InputGroup>
     </div>
   )
 }
