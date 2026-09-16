@@ -86,7 +86,7 @@ const Footer = ({ content }: Props) => {
               )}
 
               <Link
-                href="/contact"
+                href="/contact#contact-form"
                 className="transition-colors hover:text-primary-foreground"
               >
                 Contact
@@ -126,40 +126,18 @@ const Footer = ({ content }: Props) => {
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             <Link
               href="/privacy"
-              className="transition-colors hover:text-primary-foreground"
+              className="transition-colors hover:text-primary-foreground hover:underline"
             >
               Privacy
             </Link>
 
             <Link
-              href="/contact"
-              className="transition-colors hover:text-primary-foreground"
-            >
-              Contact
-            </Link>
-
-            <Link
               href="/terms"
-              className="transition-colors hover:text-primary-foreground"
+              className="transition-colors hover:text-primary-foreground hover:underline"
             >
               Terms
             </Link>
           </div>
-        </div>
-
-        {/* Agency Credit */}
-        <div className="mt-6 border-t border-primary-foreground/10 pt-5 text-center">
-          <p className="font-sans text-sm text-primary-foreground/55">
-            Made with <span className="text-secondary">♥</span> by{" "}
-            <a
-              href="https://quantumitinnovation.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-primary-foreground/70 transition-colors hover:text-secondary"
-            >
-              Quantum IT Innovation
-            </a>
-          </p>
         </div>
       </div>
     </footer>

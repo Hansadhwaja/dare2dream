@@ -11,7 +11,7 @@ const ProfileMenu = () => {
   const user = useAuthStore((state) => state.user)
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex sm:items-center gap-3 max-sm:flex-col">
       {/* Profile */}
       <Button
         variant="ghost"
@@ -31,8 +31,8 @@ const ProfileMenu = () => {
       <LogoutAlert
         trigger={
           <Button
-            variant="ghost"
-            className="h-11 gap-2.5 rounded-full px-4 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-destructive/10 hover:text-destructive focus-visible:ring-2 focus-visible:ring-destructive/30 sm:text-base"
+            variant="destructive"
+            className="h-11 gap-2.5 rounded-full px-4 text-sm font-medium transition-all duration-200 hover:bg-destructive/10 focus-visible:ring-2 focus-visible:ring-destructive/30 sm:text-base"
           >
             <LogOut className="size-[18px]" />
             <span>Logout</span>

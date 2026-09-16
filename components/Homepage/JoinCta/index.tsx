@@ -27,7 +27,7 @@ const JoinCta = ({ content }: Props) => {
         </div>
 
         <Link
-          href={token ? "/webinar" : "/register"}
+          href={token ? "/updates" : "/register"}
           className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 font-sans text-base font-semibold text-primary-foreground transition hover:brightness-95 sm:h-14 sm:px-8 lg:mt-0"
         >
           {token ? content.ctaText : "Become a Member"}

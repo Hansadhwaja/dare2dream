@@ -2,7 +2,7 @@ export const navItems = [
   { label: "Home", href: "/" },
   { label: "Webinars", href: "/webinar" },
   { label: "Latest Updates", href: "/updates" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact#contact-form" },
 ]
 
 export const authItems = [

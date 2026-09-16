@@ -81,7 +81,7 @@ const MobileNav = ({
           {/* Auth */}
           <div>
             {isAuthenticated ? (
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col">
                 <div>
                   <p className="text-sm font-semibold text-foreground">
                     Welcome back
