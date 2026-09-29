@@ -2,16 +2,16 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, MapPin, Phone } from "lucide-react"
+import { ArrowUpRight, MapPin } from "lucide-react"
 
 import { useAuthStore } from "@/store/auth/authStore"
+import { FooterContent } from "@/types/footer.types"
 
 interface Props {
-  content: string
+  footerCms: FooterContent
 }
 
-const Footer = ({ content }: Props) => {
-  const year = new Date().getFullYear()
+const Footer = ({ footerCms }: Props) => {
   const token = useAuthStore((state) => state.token)
 
   return (
@@ -36,7 +36,7 @@ const Footer = ({ content }: Props) => {
             </Link>
 
             <p className="mt-5 max-w-lg text-base leading-7 font-normal text-primary-foreground/75 sm:mt-6 sm:text-lg sm:leading-8">
-              {content}
+              {footerCms.content}
             </p>
 
             <Link
@@ -119,9 +119,7 @@ const Footer = ({ content }: Props) => {
 
         {/* Bottom Footer */}
         <div className="flex flex-col gap-5 text-sm text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between sm:text-base">
-          <p>
-            © {year} Dare to Dream. Where The Extraordinary Becomes Reality.
-          </p>
+          <p>{footerCms.tagline}</p>
 
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             <Link
@@ -138,6 +136,19 @@ const Footer = ({ content }: Props) => {
               Terms
             </Link>
           </div>
+        </div>
+        <div className="mt-6 border-t border-primary-foreground/10 pt-5 text-center">
+          <p className="font-sans text-sm text-primary-foreground/55">
+            Made with <span className="text-secondary">♥</span> by{" "}
+            <a
+              href="https://quantumitinnovation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary-foreground/70 transition-colors hover:text-secondary"
+            >
+              Quantum IT Innovation
+            </a>
+          </p>
         </div>
       </div>
     </footer>

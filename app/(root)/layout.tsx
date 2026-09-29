@@ -18,7 +18,7 @@ const HomeLayout = async ({ children }: Props) => {
       <main className="min-h-screen bg-background text-foreground">
         {children}
       </main>
-      <Footer content={footerCms.content} />
+      <Footer footerCms={footerCms} />
     </main>
   )
 }
