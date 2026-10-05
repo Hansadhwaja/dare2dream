@@ -7,7 +7,7 @@ export const navItems = [
 
 export const authItems = [
   { label: "Home", href: "/" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Contact Us", href: "/contact#contact-form" },
 ]
 
 export const buttonStyles = {

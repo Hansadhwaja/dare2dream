@@ -11,6 +11,13 @@ import RegisterForm from "@/components/Auth/Register/Form/RegisterForm"
 import { RegisterFormValues } from "@/schemas/Auth/register.schemas"
 import { registerUser } from "@/lib/api/client/auth"
 
+interface ApiError {
+  status: number
+  data?: {
+    error?: string
+  }
+}
+
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -25,12 +32,12 @@ const RegisterPage = () => {
 
       toast.success(response?.message ?? "User registered successfully")
       router.replace("/login")
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Registration failed:", error)
 
-      toast.error(
-        error instanceof Error ? error.message : "Error while registration"
-      )
+      const apiError = error as ApiError
+
+      toast.error(apiError.data?.error ?? "Error while registration")
     } finally {
       setIsLoading(false)
     }
@@ -51,9 +58,7 @@ const RegisterPage = () => {
 
       <AuthCard>
         <div className="mb-8">
-           <p className="badge-heading">
-            Create your account
-          </p>
+          <p className="badge-heading">Create your account</p>
 
           <h2 className="mt-4 font-heading text-5xl leading-[0.95] font-semibold tracking-[-0.015em] text-foreground sm:text-6xl lg:text-7xl">
             Start your journey.

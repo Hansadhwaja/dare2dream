@@ -102,7 +102,7 @@ export default function RootLayout({
       <body>
         <DisableContextMenu />
         {children}
-        <Toaster richColors />
+        <Toaster richColors position="top-center" />
       </body>
     </html>
   )
