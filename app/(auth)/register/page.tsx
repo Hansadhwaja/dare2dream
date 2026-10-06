@@ -10,13 +10,7 @@ import AuthCard from "@/components/Auth/AuthCard"
 import RegisterForm from "@/components/Auth/Register/Form/RegisterForm"
 import { RegisterFormValues } from "@/schemas/Auth/register.schemas"
 import { registerUser } from "@/lib/api/client/auth"
-
-interface ApiError {
-  status: number
-  data?: {
-    error?: string
-  }
-}
+import { ApiError } from "@/types/common.types"
 
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -27,8 +21,6 @@ const RegisterPage = () => {
       setIsLoading(true)
 
       const response = await registerUser(values)
-
-      console.log("Registration successful:", response)
 
       toast.success(response?.message ?? "User registered successfully")
       router.replace("/login")

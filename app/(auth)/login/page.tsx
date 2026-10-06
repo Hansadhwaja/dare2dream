@@ -10,6 +10,7 @@ import { toast } from "sonner"
 import { loginUser, setServerToken } from "@/lib/api/client/auth"
 import { useAuthStore } from "@/store/auth/authStore"
 import { useRouter } from "next/navigation"
+import { ApiError } from "@/types/common.types"
 
 const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -27,12 +28,12 @@ const LoginPage = () => {
 
       toast.success("User Logged In successfully")
       router.replace("/")
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Login failed:", error)
 
-      toast.error(
-        error instanceof Error ? error.message : "Error while logging in"
-      )
+      const apiError = error as ApiError
+
+      toast.error(apiError.data?.error ?? "Error while logging in")
     } finally {
       setIsLoading(false)
     }
@@ -55,9 +56,7 @@ const LoginPage = () => {
 
       <AuthCard>
         <div className="mb-8">
-          <p className="badge-heading">
-            Member login
-          </p>
+          <p className="badge-heading">Member login</p>
 
           <h2 className="mt-4 font-heading text-5xl leading-[0.95] font-semibold tracking-[-0.015em] text-foreground sm:text-6xl lg:text-7xl">
             Welcome back.
