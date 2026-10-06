@@ -1,6 +1,6 @@
 import { useAuthStore } from "@/store/auth/authStore"
 
-const API_URL = process.env.API_BASE_URL
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
 
 export async function apiFetch<T>(
   endpoint: string,
@@ -10,7 +10,7 @@ export async function apiFetch<T>(
 
   const isFormData = options.body instanceof FormData
 
-  const response = await fetch(`${API_URL}${endpoint}`, {
+  const response = await fetch(`${baseUrl}${endpoint}`, {
     ...options,
     headers: {
       ...(!isFormData && {
