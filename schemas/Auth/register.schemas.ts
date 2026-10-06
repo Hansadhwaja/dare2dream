@@ -16,6 +16,9 @@ export const registerSchema = z.object({
   agreedPrivacyPolicy: z.boolean().refine((value) => value, {
     message: "You must accept the terms and privacy policy.",
   }),
+  isAbove18: z.boolean().refine((value) => value === true, {
+    message: "You must be 18 years or older to create an account.",
+  }),
 })
 
 export type RegisterFormValues = z.infer<typeof registerSchema>

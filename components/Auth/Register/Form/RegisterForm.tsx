@@ -59,6 +59,7 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
       country: "",
       whoInvited: "",
       agreedPrivacyPolicy: true,
+      isAbove18: true,
     },
   })
 
@@ -207,7 +208,25 @@ const RegisterForm = ({ onSubmit, isLoading }: Props) => {
           </label>
         )}
       />
+      {/* Age Confirmation */}
+      <FormField
+        control={form.control}
+        name="isAbove18"
+        render={(field) => (
+          <label className="flex cursor-pointer items-start gap-2 pt-1 font-sans text-xs leading-5 text-muted-foreground">
+            <Checkbox
+              checked={Boolean(field.value)}
+              onCheckedChange={field.onChange}
+              onBlur={field.onBlur}
+              className="mt-0.5"
+            />
 
+            <span className="text-sm leading-6 text-muted-foreground">
+              I confirm that I am 18 years old or above.
+            </span>
+          </label>
+        )}
+      />
       {/* Submit */}
       <Button
         type="submit"
