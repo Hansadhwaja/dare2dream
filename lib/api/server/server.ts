@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.API_BASE_URL
 
 export async function serverApiFetch<T>(
   endpoint: string,
